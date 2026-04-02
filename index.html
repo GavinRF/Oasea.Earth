@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oasea — Every Drop Counts</title>
+  <meta name="description" content="Sculpt terrain. Guide the rain. Watch life return. Oasea is a game about water and patience, launching Earth Day 2026.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://oasea.earth/">
+  <meta name="theme-color" content="#0d1b2a">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://oasea.earth/">
+  <meta property="og:title" content="Oasea — Every Drop Counts">
+  <meta property="og:description" content="Sculpt terrain. Guide the rain. Watch life return. Oasea is a game about water and patience, launching Earth Day 2026.">
+  <meta property="og:image" content="https://oasea.earth/img/og-card.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Oasea — Every Drop Counts">
+  <meta name="twitter:description" content="Sculpt terrain. Guide the rain. Watch life return. Oasea is a game about water and patience, launching Earth Day 2026.">
+  <meta name="twitter:image" content="https://oasea.earth/img/og-card.png">
+
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="preload" href="font/HagridText-Regular.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="img/island-bg.webp" as="image">
+
+  <link rel="stylesheet" href="style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "Oasea",
+    "description": "Sculpt terrain. Guide the rain. Watch life return. A game about water and patience.",
+    "url": "https://oasea.earth/",
+    "genre": ["Simulation", "Puzzle"],
+    "gamePlatform": "PC",
+    "datePublished": "2026-04-22",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Oasea",
+      "url": "https://oasea.earth/"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <div class="bg-image" aria-hidden="true"></div>
+  <div class="color-blend" aria-hidden="true"></div>
+  <div class="bg-darken" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <main class="stage">
+    <div class="content">
+
+      <p class="eyebrow">A game about water and life</p>
+
+      <h1 class="headline">Oasea</h1>
+
+      <p class="subhead">Every drop counts</p>
+
+      <p class="body-copy">Sculpt terrain. Guide the rain. Watch&nbsp;life&nbsp;return.</p>
+
+      <div class="countdown" id="countdown" aria-label="Time until launch">
+        <div class="countdown-unit">
+          <span class="count-value" id="cd-days">--</span>
+          <span class="count-label">days</span>
+        </div>
+        <div class="countdown-divider" aria-hidden="true"></div>
+        <div class="countdown-unit">
+          <span class="count-value" id="cd-hours">--</span>
+          <span class="count-label">hours</span>
+        </div>
+        <div class="countdown-divider" aria-hidden="true"></div>
+        <div class="countdown-unit">
+          <span class="count-value" id="cd-minutes">--</span>
+          <span class="count-label">minutes</span>
+        </div>
+        <div class="countdown-divider" aria-hidden="true"></div>
+        <div class="countdown-unit">
+          <span class="count-value" id="cd-seconds">--</span>
+          <span class="count-label">seconds</span>
+        </div>
+      </div>
+
+      <div class="form-shell" id="form-shell">
+        <form class="email-form" id="email-form" novalidate>
+          <div class="input-wrap">
+            <input
+              type="email"
+              id="email-input"
+              name="email"
+              placeholder="your@email.com"
+              autocomplete="email"
+              autocapitalize="off"
+              spellcheck="false"
+              required
+              aria-label="Email address"
+              aria-describedby="email-error"
+            >
+            <button type="submit" class="submit-btn" id="submit-btn">
+              Join the restoration
+            </button>
+          </div>
+          <p class="email-error" id="email-error" role="alert" aria-live="polite"></p>
+          <p class="privacy-note">No spam. One email at launch. Unsubscribe&nbsp;anytime.</p>
+          <p class="launch-date">Coming April 22, 2026 — Earth Day</p>
+        </form>
+
+        <div class="store-links" aria-label="Wishlist on Steam">
+          <a href="#" class="store-badge" aria-label="Coming to Steam — wishlist now">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1 15.5v-3.086l-3.293 3.293-1.414-1.414L9.586 13H6.5v-2h3.086L6.293 7.707l1.414-1.414L11 9.586V6.5h2v3.086l3.293-3.293 1.414 1.414L14.414 11H17.5v2h-3.086l3.293 3.293-1.414 1.414L13 14.414V17.5h-2z"/></svg>
+            <span>Wishlist on Steam</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="thank-you" id="thank-you" aria-live="polite">
+        <p class="ty-main">You're on the list.</p>
+        <p class="ty-sub">The island remembers.</p>
+        <div class="ty-actions">
+          <button class="share-btn" id="share-btn" aria-label="Share Oasea with a friend">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            <span>Tell a friend</span>
+          </button>
+          <div class="ty-socials">
+            <a href="#" class="ty-social" aria-label="Follow on X/Twitter">X</a>
+            <a href="#" class="ty-social" aria-label="Join Discord">Discord</a>
+            <a href="#" class="ty-social" aria-label="Follow on Bluesky">Bluesky</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer" aria-label="Site footer">
+    <span class="footer-mark">Oasea.Earth</span>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

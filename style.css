@@ -1,0 +1,624 @@
+/* =============================================
+   OASEA — style.css
+   Pre-launch landing page
+   ============================================= */
+
+/* ── Hagrid Fonts ─────────────────────────────── */
+@font-face {
+  font-family: 'Hagrid';
+  src: url('font/Hagrid-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Hagrid Text';
+  src: url('font/HagridText-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Hagrid Text';
+  src: url('font/HagridText-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Reset & Custom Properties ───────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --ocean:   #0078b4;
+  --sand:    #c8a96e;
+  --dusk:    #e07b3f;
+  --green:   #4a9e6b;
+  --night:   #0d1b2a;
+  --foam:    #e8f4f8;
+
+  --font-display: 'Hagrid', Georgia, serif;
+  --font-text:    'Hagrid Text', system-ui, sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* ── Base ─────────────────────────────────────── */
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100%;
+  background: var(--night);
+  color: var(--foam);
+  font-family: var(--font-text);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── Island Background Photo ──────────────────── */
+.bg-image {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: url('img/island-bg.webp') center center / cover no-repeat;
+}
+
+/* ── Color Blend Overlay ──────────────────────── */
+/* mix-blend-mode: color takes the hue/saturation of this gradient
+   and applies it to the photo's luminosity — cinematic ocean-dusk tint */
+.color-blend {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    162deg,
+    #0d2a4a 0%,
+    #0078b4 38%,
+    #003d62 65%,
+    #0d1b2a 100%
+  );
+  mix-blend-mode: color;
+  opacity: 0.42;
+}
+
+/* ── Dark Scrim — legibility layer ───────────────*/
+.bg-darken {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  background: rgba(8, 18, 32, 0.42);
+  pointer-events: none;
+}
+
+/* ── Rain Canvas (particles only) ────────────── */
+#bg-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+/* ── Vignette ─────────────────────────────────── */
+.vignette {
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 110% 80% at 50% 60%,
+      transparent 35%,
+      rgba(13, 27, 42, 0.38) 65%,
+      rgba(13, 27, 42, 0.72) 100%
+    );
+}
+
+/* ── Stage / Layout ───────────────────────────── */
+.stage {
+  position: relative;
+  z-index: 5;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(3rem, 8vh, 6rem) clamp(1.25rem, 5vw, 3rem);
+}
+
+.content {
+  width: 100%;
+  max-width: 660px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding: 44px 14px;
+  background-color: rgba(13, 27, 42, 0.7);
+  border-radius: 10px;
+}
+
+/* ── Staggered reveal animations ─────────────── */
+.eyebrow, .headline, .subhead, .body-copy,
+.countdown, .form-shell, .store-links {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: reveal 1.4s var(--ease-out-expo) forwards;
+}
+
+.eyebrow     { animation-delay: 0.25s; }
+.headline    { animation-delay: 0.45s; }
+.subhead     { animation-delay: 0.65s; }
+.body-copy   { animation-delay: 0.80s; }
+.countdown   { animation-delay: 1.00s; }
+.form-shell  { animation-delay: 1.20s; }
+.store-links { animation-delay: 1.40s; }
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Eyebrow ──────────────────────────────────── */
+.eyebrow {
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: clamp(0.62rem, 1.4vw, 0.75rem);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(232, 244, 248, 0.85);
+  margin-bottom: clamp(1.25rem, 3vh, 2rem);
+  line-height: 1.6;
+}
+
+/* ── Headline ─────────────────────────────────── */
+/* Hagrid display is italic-only; extrabold (800) for maximum presence */
+.headline {
+  font-family: var(--font-text);
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(4.35rem, 13.4vw, 9.2rem);
+  line-height: 0.95;
+  letter-spacing: 0.061em;
+  color: var(--foam);
+  margin-bottom: clamp(1.25rem, 3vh, 2rem);
+}
+
+/* ── Subhead ──────────────────────────────────── */
+.subhead {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(1.2rem, 3.2vw, 1.8rem);
+  letter-spacing: 0.04em;
+  color: rgba(200, 169, 110, 0.85);
+  margin-bottom: clamp(0.9rem, 2vh, 1.5rem);
+}
+
+/* ── Body copy ────────────────────────────────── */
+.body-copy {
+  font-family: var(--font-text);
+  font-weight: 400;
+  font-size: clamp(0.8rem, 1.7vw, 0.95rem);
+  line-height: 2.1;
+  letter-spacing: 0.1em;
+  color: rgba(232, 244, 248, 0.88);
+  margin-bottom: clamp(2.5rem, 6vh, 4rem);
+}
+
+/* ── Countdown ────────────────────────────────── */
+.countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: clamp(2.5rem, 6vh, 4rem);
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Fixed width prevents reflow when digit count changes */
+  width: clamp(4.5rem, 10vw, 7rem);
+  flex-shrink: 0;
+}
+
+.countdown-divider {
+  width: 1px;
+  height: 2.8rem;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(200, 169, 110, 0.25) 30%,
+    rgba(200, 169, 110, 0.25) 70%,
+    transparent
+  );
+  flex-shrink: 0;
+}
+
+.count-value {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--foam);
+  /* Smooth digit transitions */
+  transition: opacity 0.3s ease;
+  font-variant-numeric: tabular-nums;
+}
+
+.count-value.tick {
+  opacity: 0.5;
+}
+
+.count-label {
+  display: block;
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: clamp(0.55rem, 1vw, 0.65rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(200, 169, 110, 0.85);
+  margin-top: 0.6rem;
+}
+
+/* ── Form Shell ───────────────────────────────── */
+.form-shell {
+  width: 100%;
+}
+
+.email-form {
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+.input-wrap {
+  display: flex;
+  align-items: stretch;
+  border-radius: 100px;
+  overflow: hidden;
+  background: rgba(232, 244, 248, 0.06);
+  border: 1px solid rgba(232, 244, 248, 0.1);
+  box-shadow:
+    0 4px 32px rgba(0, 120, 180, 0.12),
+    0 1px 8px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition:
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.input-wrap:focus-within {
+  border-color: rgba(0, 120, 180, 0.35);
+  box-shadow:
+    0 4px 40px rgba(0, 120, 180, 0.22),
+    0 1px 8px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+#email-input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 1.05rem 1.4rem 1.05rem 1.75rem;
+  font-family: var(--font-text);
+  font-weight: 400;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  color: var(--foam);
+  line-height: 1;
+}
+
+#email-input::placeholder {
+  color: rgba(232, 244, 248, 0.28);
+}
+
+#email-input:-webkit-autofill,
+#email-input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--foam);
+  -webkit-box-shadow: 0 0 0 40px rgba(0, 30, 50, 0.8) inset;
+  caret-color: var(--foam);
+}
+
+.submit-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ocean);
+  border: none;
+  border-radius: 100px;
+  padding: 0.9rem 1.6rem;
+  margin: 4px;
+  font-family: var(--font-text);
+  font-weight: 400;
+  font-size: clamp(0.7rem, 1.3vw, 0.8rem);
+  letter-spacing: 0.1em;
+  color: rgba(232, 244, 248, 0.9);
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background 0.35s ease,
+    transform 0.2s ease,
+    box-shadow 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.08) 0%,
+    transparent 60%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.submit-btn:hover {
+  background: #008ed4;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(0, 120, 180, 0.3);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.launch-date {
+  margin-top: 1.1rem;
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(232, 244, 248, 0.92);
+  text-align: center;
+}
+
+/* ── Email Error ──────────────────────────────── */
+.email-error {
+  font-family: var(--font-text);
+  font-weight: 400;
+  font-size: 0.72rem;
+  color: #e07b3f;
+  text-align: center;
+  margin-top: 0.5rem;
+  min-height: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.email-error.visible {
+  opacity: 1;
+}
+
+/* ── Privacy Note ─────────────────────────────── */
+.privacy-note {
+  margin-top: 0.7rem;
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  color: rgba(232, 244, 248, 0.4);
+  text-align: center;
+}
+
+/* ── Store Links ──────────────────────────────── */
+.store-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid rgba(232, 244, 248, 0.06);
+}
+
+.store-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid rgba(232, 244, 248, 0.1);
+  border-radius: 8px;
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: rgba(232, 244, 248, 0.5);
+  text-decoration: none;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.store-badge:hover {
+  border-color: rgba(232, 244, 248, 0.25);
+  color: rgba(232, 244, 248, 0.8);
+}
+
+.store-badge svg {
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.store-badge:hover svg {
+  opacity: 0.8;
+}
+
+/* ── Thank You ────────────────────────────────── */
+.thank-you {
+  display: none;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.thank-you.visible {
+  display: block;
+  animation: reveal 1.2s var(--ease-out-expo) forwards;
+}
+
+.ty-main {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: var(--foam);
+  letter-spacing: 0.02em;
+  margin-bottom: 0.6rem;
+  line-height: 1.2;
+}
+
+.ty-sub {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  color: rgba(200, 169, 110, 0.75);
+  letter-spacing: 0.06em;
+}
+
+/* ── Thank You Actions ──────────────────────── */
+.ty-actions {
+  margin-top: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(232, 244, 248, 0.06);
+  border: 1px solid rgba(232, 244, 248, 0.1);
+  border-radius: 100px;
+  padding: 0.65rem 1.3rem;
+  font-family: var(--font-text);
+  font-weight: 400;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: rgba(232, 244, 248, 0.7);
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.share-btn:hover {
+  background: rgba(232, 244, 248, 0.1);
+  color: rgba(232, 244, 248, 0.95);
+  border-color: rgba(232, 244, 248, 0.2);
+}
+
+.ty-socials {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.ty-social {
+  font-family: var(--font-text);
+  font-weight: 300;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(200, 169, 110, 0.5);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.ty-social:hover {
+  color: rgba(200, 169, 110, 0.85);
+}
+
+/* ── Footer ───────────────────────────────────── */
+.footer {
+  position: relative;
+  z-index: 5;
+  padding: clamp(1.5rem, 3vh, 2.5rem) 2rem;
+  text-align: center;
+}
+
+.footer-mark {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 0.8rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(232, 244, 248, 0.8);
+}
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 520px) {
+  .countdown-unit {
+    width: 4rem;
+  }
+
+  .countdown-divider {
+    height: 2.2rem;
+  }
+
+  .input-wrap {
+    flex-direction: column;
+    border-radius: 20px;
+    gap: 0;
+  }
+
+  #email-input {
+    padding: 1.1rem 1.4rem 0.8rem;
+    font-size: 1rem;
+  }
+
+  .submit-btn {
+    border-radius: 16px;
+    margin: 0 4px 4px;
+    padding: 1rem 1.4rem;
+    font-size: 0.78rem;
+  }
+
+  .input-wrap:focus-within {
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 380px) {
+  .headline {
+    font-size: 3.5rem;
+  }
+}
+
+/* ── Reduced motion ───────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .eyebrow, .headline, .subhead, .body-copy,
+  .countdown, .form-shell, .store-links, .thank-you.visible {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
