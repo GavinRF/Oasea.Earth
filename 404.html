@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lost at Sea — Oasea</title>
+  <meta name="robots" content="noindex">
+  <style>
+    @font-face {
+      font-family: 'Hagrid-Bold';
+      src: url('/font/HagridText-Bold.otf');
+      font-weight: bold;
+    }
+    @font-face {
+      font-family: 'Hagrid-Regular';
+      src: url('/font/HagridText-Regular.otf');
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, #1a2f3f 0%, #061d37 56%, #051323 100%);
+      font-family: 'Hagrid-Regular', Arial, sans-serif;
+      color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+      padding: 24px;
+    }
+
+    .container {
+      max-width: 420px;
+    }
+
+    .emoji {
+      font-size: 72px;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    h1 {
+      font-family: 'Hagrid-Bold', Arial, sans-serif;
+      font-size: 28px;
+      color: rgba(255, 255, 255, 0.95);
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.6;
+      margin-bottom: 36px;
+    }
+
+    a {
+      display: inline-block;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, rgba(0, 180, 220, 0.35), rgba(0, 255, 180, 0.2));
+      border: 1.5px solid #10d3ff;
+      border-radius: 12px;
+      color: rgba(255, 255, 255, 0.9);
+      font-family: 'Hagrid-Bold', Arial, sans-serif;
+      font-size: 16px;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+
+    a:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="emoji">🏝️</span>
+    <h1>404 - Lost at Sea</h1>
+    <p>This island doesn't exist.</p>
+    <a href="https://oasea.earth/">Return to Oasea</a>
+  </div>
+</body>
+</html>

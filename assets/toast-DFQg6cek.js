@@ -1,0 +1,7 @@
+const d={success:"check_circle",error:"error",warning:"warning",info:"info",achievement:"emoji_events",daily:"today"},l=4e3;function h(){if(!document.getElementById("toast-container")){const t=document.createElement("div");t.id="toast-container",t.className="toast-container",document.body.appendChild(t)}}function a(t,n="info",s=l,c={}){h();const m=document.getElementById("toast-container"),e=document.createElement("div"),u=`toast-${Date.now()}-${Math.random()}`;e.id=u,e.className=`toast toast-${n}`,c.onClick&&e.classList.add("toast-clickable");const f=d[n]||d.info;e.innerHTML=`
+    <span class="toast-icon material-icons">${f}</span>
+    <span class="toast-message">${t}</span>
+    <button class="toast-close" aria-label="Close">
+      <span class="material-icons">close</span>
+    </button>
+  `,m.appendChild(e),requestAnimationFrame(()=>{e.classList.add("toast-show")});const i=e.querySelector(".toast-close");return i.addEventListener("click",o=>{o.stopPropagation(),r(e)}),c.onClick&&e.addEventListener("click",o=>{o.target!==i&&!i.contains(o.target)&&(r(e),c.onClick())}),s>0&&setTimeout(()=>{r(e)},s),e}function r(t){!t||!t.parentElement||(t.classList.remove("toast-show"),t.classList.add("toast-hide"),setTimeout(()=>{t.parentElement&&t.remove()},300))}function p(t,n=l){return a(t,"success",n)}function E(t,n=l){return a(t,"error",n)}function T(t,n=5e3,s={}){return a(t,"achievement",n,s)}function v(t,n=6e3,s={}){return a(t,"daily",n,s)}export{T as showAchievement,v as showDaily,E as showError,p as showSuccess,a as showToast};
