@@ -23,7 +23,22 @@
     }
   ],
   "categories": ["games", "entertainment"],
-  "screenshots": [],
+  "screenshots": [
+    {
+      "src": "/img/pwa/title.webp",
+      "sizes": "2160x3840",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "label": "Oasea title screen"
+    },
+    {
+      "src": "/img/pwa/flyover-win.webp",
+      "sizes": "2160x3840",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "label": "Win screen flyover"
+    }
+  ],
   "share_target": {
     "action": "/",
     "method": "GET",
