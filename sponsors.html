@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oasea — Sponsors</title>
+<meta name="description" content="Become a sponsor of Oasea. Attach your name to a quiet, growing world played by people who care.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Fraunces:ital,wght@1,300;1,400;1,500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<script src="https://code.iconify.design/2/2.0.0/iconify.min.js"></script>
+<link rel="stylesheet" href="about.css">
+<style>
+  /* =====================================================================
+     SPONSORS — page-specific layer on top of about.css
+  ===================================================================== */
+
+  /* Hero variant for sponsors page (shorter than about hero) */
+  .hero.hero--sponsors {
+    min-height: 78svh;
+  }
+  .hero--sponsors .hero-bg {
+    background:
+      radial-gradient(ellipse 70% 55% at 30% 35%, rgba(0, 140, 200, 0.45), transparent 60%),
+      radial-gradient(ellipse 70% 50% at 80% 65%, rgba(200, 169, 110, 0.4), transparent 60%),
+      linear-gradient(160deg, #0a2540 0%, #0078b4 35%, #003d62 65%, #0d1b2a 100%);
+  }
+
+  /* Trust strip */
+  .trust-strip {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    width: 100%;
+    max-width: 880px;
+  }
+  @media (max-width: 720px) {
+    .trust-strip { grid-template-columns: repeat(2, 1fr); }
+  }
+  .trust-stat {
+    text-align: center;
+    padding: 16px 8px;
+    border-left: 1px solid rgba(232, 244, 248, 0.1);
+  }
+  .trust-stat:first-child { border-left: none; }
+  .trust-stat .num {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: var(--foam);
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: 0.02em;
+  }
+  .trust-stat .num em {
+    font-family: var(--font-italic);
+    font-style: italic;
+    color: var(--sand);
+  }
+  .trust-stat .lab {
+    font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: rgba(232, 244, 248, 0.55);
+    font-weight: 300;
+  }
+
+  /* =====================================================================
+     BENEFITS GRID
+  ===================================================================== */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 64px;
+  }
+  @media (max-width: 920px) { .benefits-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .benefits-grid { grid-template-columns: 1fr; } }
+
+  .benefit {
+    padding: 32px 28px;
+    border: 1px solid var(--section-rule);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(4px);
+    position: relative;
+    transition: transform 0.4s var(--ease-out-expo), border-color 0.3s ease, box-shadow 0.4s ease;
+  }
+  .benefit:hover {
+    transform: translateY(-3px);
+    border-color: rgba(0, 120, 180, 0.4);
+    box-shadow: 0 18px 50px rgba(13, 27, 42, 0.08);
+  }
+  .benefit-icon {
+    width: 30px; height: 30px;
+    color: var(--ocean);
+    margin-bottom: 18px;
+  }
+  .benefit-num {
+    position: absolute; top: 22px; right: 26px;
+    font-family: var(--font-display);
+    font-size: 13px;
+    color: var(--ocean-deep);
+    opacity: 0.4;
+    letter-spacing: 0.05em;
+  }
+  .benefit h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 24px;
+    margin-bottom: 10px;
+    letter-spacing: 0.01em;
+    color: var(--section-ink);
+  }
+  .benefit h3 em { font-family: var(--font-italic); font-style: italic; color: var(--ocean); }
+  .benefit p {
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--section-ink-soft);
+  }
+
+  /* =====================================================================
+     TIERS
+  ===================================================================== */
+  .tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 56px;
+  }
+  @media (max-width: 1100px) { .tiers-grid { grid-template-columns: repeat(2, 1fr); gap: 22px; } }
+  @media (max-width: 600px)  { .tiers-grid { grid-template-columns: 1fr; } }
+
+  .tier {
+    position: relative;
+    padding: 28px 24px 28px;
+    border: 1px solid rgba(232, 244, 248, 0.12);
+    border-radius: 16px;
+    background: rgba(232, 244, 248, 0.025);
+    display: flex; flex-direction: column;
+    transition: transform 0.4s var(--ease-out-expo), border-color 0.3s ease, background 0.3s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+  }
+  .tier:hover {
+    transform: translateY(-4px);
+    border-color: rgba(200, 169, 110, 0.35);
+    background: rgba(232, 244, 248, 0.045);
+  }
+  .tier.selected {
+    border-color: var(--sand);
+    background: rgba(200, 169, 110, 0.08);
+    box-shadow: 0 20px 60px rgba(200, 169, 110, 0.12), 0 0 0 1px var(--sand) inset;
+  }
+  .tier.featured::before {
+    content: 'Most chosen';
+    position: absolute; top: -10px; left: 22px;
+    background: var(--sand);
+    color: var(--night);
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-size: 9px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+  }
+  .tier-glyph {
+    width: 36px; height: 36px;
+    color: var(--sand);
+    margin-bottom: 16px;
+    opacity: 0.85;
+  }
+  .tier-name {
+    font-family: var(--font-italic);
+    font-style: italic;
+    font-size: 22px;
+    color: var(--foam);
+    letter-spacing: 0.02em;
+    margin-bottom: 4px;
+  }
+  .tier-sub {
+    font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: rgba(232, 244, 248, 0.5);
+    margin-bottom: 22px;
+    font-weight: 300;
+  }
+  .tier-price {
+    font-family: var(--font-display);
+    font-size: 38px;
+    line-height: 1;
+    color: var(--foam);
+    margin-bottom: 4px;
+    letter-spacing: 0.01em;
+  }
+  .tier-price .cur { font-size: 18px; vertical-align: top; margin-right: 2px; opacity: 0.7; }
+  .tier-price .per {
+    font-family: var(--font-text);
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(232, 244, 248, 0.5);
+    font-weight: 300;
+    margin-left: 4px;
+  }
+  .tier-tag {
+    font-family: var(--font-italic); font-style: italic;
+    font-size: 13px;
+    color: var(--sand-soft);
+    margin-top: 14px;
+    margin-bottom: 22px;
+    line-height: 1.5;
+  }
+  .tier ul {
+    list-style: none;
+    padding-top: 18px;
+    border-top: 1px solid rgba(232, 244, 248, 0.08);
+    flex: 1;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .tier ul li {
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: rgba(232, 244, 248, 0.78);
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .tier ul li::before {
+    content: '';
+    width: 14px; height: 14px;
+    flex-shrink: 0;
+    margin-top: 3px;
+    background: rgba(200, 169, 110, 0.18);
+    border: 1px solid rgba(200, 169, 110, 0.5);
+    border-radius: 50%;
+    position: relative;
+  }
+  .tier ul li.has::after { /* checkmark dot */ }
+  .tier ul li.has::before {
+    background: var(--sand);
+    border-color: var(--sand);
+  }
+  .tier .pick-btn {
+    margin-top: 22px;
+    width: 100%;
+    padding: 13px 16px;
+    border-radius: 100px;
+    border: 1px solid rgba(232, 244, 248, 0.18);
+    background: transparent;
+    color: var(--foam);
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 400;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  }
+  .tier .pick-btn:hover { background: rgba(232, 244, 248, 0.06); border-color: rgba(232, 244, 248, 0.4); }
+  .tier.selected .pick-btn {
+    background: var(--sand);
+    color: var(--night);
+    border-color: var(--sand);
+  }
+  .tier.selected .pick-btn::after {
+    content: ' ✓';
+    margin-left: 4px;
+  }
+
+  /* =====================================================================
+     SIGNUP FORM
+  ===================================================================== */
+  .signup-shell {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  @media (max-width: 900px) { .signup-shell { grid-template-columns: 1fr; gap: 32px; } }
+
+  .signup-form {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid var(--section-rule);
+    border-radius: 18px;
+    padding: 36px 34px;
+    backdrop-filter: blur(6px);
+  }
+  @media (max-width: 560px) { .signup-form { padding: 26px 22px; } }
+  .signup-form h3 {
+    font-family: var(--font-display);
+    font-size: 26px; font-weight: 400;
+    margin-bottom: 4px;
+    color: var(--section-ink);
+  }
+  .signup-form h3 em { font-family: var(--font-italic); font-style: italic; color: var(--ocean); }
+  .signup-form .form-sub {
+    font-size: 13.5px;
+    color: var(--section-ink-soft);
+    margin-bottom: 24px;
+  }
+
+  .field {
+    display: flex; flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .field label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ocean-deep);
+  }
+  .field label .req { color: var(--dusk); margin-left: 4px; }
+  .field input[type="text"],
+  .field input[type="email"],
+  .field input[type="url"],
+  .field textarea,
+  .field select {
+    width: 100%;
+    padding: 12px 14px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(26, 36, 51, 0.16);
+    border-radius: 10px;
+    font-family: var(--font-text);
+    font-size: 14px;
+    color: var(--section-ink);
+    line-height: 1.4;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  }
+  .field textarea { min-height: 90px; resize: vertical; }
+  .field input:focus, .field textarea:focus, .field select:focus {
+    outline: none;
+    border-color: var(--ocean);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(0, 120, 180, 0.12);
+  }
+  .field input::placeholder, .field textarea::placeholder { color: rgba(26, 36, 51, 0.38); }
+
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  @media (max-width: 540px) { .field-row { grid-template-columns: 1fr; } }
+
+  /* Logo upload */
+  .logo-drop {
+    border: 1.5px dashed rgba(0, 120, 180, 0.35);
+    border-radius: 12px;
+    padding: 22px;
+    background: rgba(0, 120, 180, 0.04);
+    display: flex; align-items: center; gap: 18px;
+    cursor: pointer;
+    transition: background 0.25s ease, border-color 0.25s ease;
+    position: relative;
+  }
+  .logo-drop:hover, .logo-drop.dragover {
+    background: rgba(0, 120, 180, 0.09);
+    border-color: var(--ocean);
+  }
+  .logo-drop input[type="file"] {
+    position: absolute; inset: 0;
+    opacity: 0; cursor: pointer;
+  }
+  .logo-preview {
+    width: 64px; height: 64px;
+    border-radius: 10px;
+    background: #fff;
+    border: 1px solid var(--section-rule);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ocean);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .logo-preview svg { width: 26px; height: 26px; }
+  .logo-preview img { width: 100%; height: 100%; object-fit: contain; }
+  .logo-drop .copy {
+    flex: 1;
+    min-width: 0;
+  }
+  .logo-drop .copy .t {
+    font-family: var(--font-display);
+    font-size: 16px; color: var(--section-ink);
+    margin-bottom: 2px;
+  }
+  .logo-drop .copy .s {
+    font-size: 12px; color: var(--section-ink-soft);
+    word-break: break-all;
+  }
+
+  /* Selected tier readout */
+  .selected-tier-read {
+    background: rgba(0, 120, 180, 0.06);
+    border: 1px solid rgba(0, 120, 180, 0.15);
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex; justify-content: space-between; align-items: center; gap: 14px;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+  }
+  .selected-tier-read .l {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ocean-deep);
+  }
+  .selected-tier-read .v {
+    font-family: var(--font-italic); font-style: italic;
+    font-size: 18px;
+    color: var(--ocean-deep);
+  }
+  .selected-tier-read .v .price { color: var(--section-ink); margin-left: 8px; font-style: normal; font-family: var(--font-display); }
+  .selected-tier-read button {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ocean);
+    background: none; border: none;
+    text-decoration: underline; text-underline-offset: 3px;
+  }
+
+  .checkbox-row {
+    display: flex; align-items: flex-start; gap: 10px;
+    margin: 8px 0 22px;
+    font-size: 13px;
+    color: var(--section-ink-soft);
+    line-height: 1.5;
+  }
+  .checkbox-row input { margin-top: 3px; accent-color: var(--ocean); }
+
+  .submit-row {
+    display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .btn-stripe {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 32px;
+    background: var(--ocean-deep);
+    color: var(--foam);
+    border-radius: 100px;
+    font-size: 13px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    transition: transform 0.2s var(--ease-out-expo), background 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 24px rgba(0, 61, 98, 0.25);
+  }
+  .btn-stripe:hover {
+    transform: translateY(-2px);
+    background: #02528b;
+    box-shadow: 0 10px 36px rgba(0, 61, 98, 0.35);
+  }
+  .btn-stripe svg { width: 16px; height: 16px; }
+  .stripe-note {
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--section-ink-soft);
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .stripe-note .lock {
+    width: 12px; height: 12px;
+  }
+
+  /* What happens next sidebar */
+  .next-card {
+    position: sticky;
+    top: 100px;
+    background: var(--night-2);
+    color: var(--foam);
+    border-radius: 18px;
+    padding: 28px 26px;
+    border: 1px solid rgba(232, 244, 248, 0.06);
+  }
+  .next-card h4 {
+    font-family: var(--font-display);
+    font-size: 20px; font-weight: 400;
+    margin-bottom: 18px;
+    color: var(--foam);
+  }
+  .next-card h4 em { font-family: var(--font-italic); font-style: italic; color: var(--sand); }
+  .next-list {
+    list-style: none;
+    counter-reset: step;
+  }
+  .next-list li {
+    counter-increment: step;
+    padding: 14px 0 14px 38px;
+    border-top: 1px solid rgba(232, 244, 248, 0.07);
+    position: relative;
+    font-size: 13.5px;
+    color: var(--foam-dim);
+    line-height: 1.55;
+  }
+  .next-list li:first-child { border-top: none; padding-top: 4px; }
+  .next-list li:last-child { padding-bottom: 4px; }
+  .next-list li::before {
+    content: counter(step, decimal-leading-zero);
+    position: absolute; left: 0; top: 14px;
+    font-family: var(--font-display);
+    font-size: 13px;
+    color: var(--sand);
+    letter-spacing: 0.05em;
+  }
+  .next-list li:first-child::before { top: 4px; }
+  .next-list li strong {
+    color: var(--foam);
+    font-weight: 500;
+    display: block;
+    margin-bottom: 2px;
+    font-family: var(--font-display);
+  }
+
+  /* =====================================================================
+     CURRENT SPONSORS / SOCIAL PROOF
+  ===================================================================== */
+  .sponsor-wall {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1px;
+    background: rgba(232, 244, 248, 0.08);
+    border: 1px solid rgba(232, 244, 248, 0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-top: 48px;
+  }
+  @media (max-width: 900px) { .sponsor-wall { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 520px) { .sponsor-wall { grid-template-columns: repeat(2, 1fr); } }
+  .sponsor-cell {
+    background: var(--night-2);
+    aspect-ratio: 16/9;
+    display: flex; align-items: center; justify-content: center;
+    padding: 18px;
+    color: rgba(232, 244, 248, 0.4);
+    font-family: var(--font-italic); font-style: italic;
+    font-size: 14px;
+    text-align: center;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  .sponsor-cell:hover { background: #0a1828; color: var(--sand-soft); }
+  .sponsor-cell.empty {
+    color: rgba(232, 244, 248, 0.2);
+    font-family: var(--font-text); font-style: normal;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  }
+
+  /* =====================================================================
+     FAQ tweak — sponsors are on a light section
+  ===================================================================== */
+  .section-light .faq-list { border-top-color: rgba(26, 36, 51, 0.14); }
+  .section-light .faq-item { border-bottom-color: rgba(26, 36, 51, 0.14); }
+  .section-light .faq-q { color: var(--section-ink); }
+  .section-light .faq-q .sign { border-color: rgba(26, 36, 51, 0.25); }
+  .section-light .faq-q .sign::before, .section-light .faq-q .sign::after { background: var(--section-ink); }
+  .section-light .faq-item.open .faq-q .sign { background: var(--ocean); border-color: var(--ocean); }
+  .section-light .faq-item.open .faq-q .sign::before, .section-light .faq-item.open .faq-q .sign::after { background: var(--foam); }
+  .section-light .faq-a { color: var(--section-ink-soft); }
+
+  /* Toast on success */
+  .toast {
+    position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(20px);
+    background: var(--night-2);
+    color: var(--foam);
+    border: 1px solid rgba(200, 169, 110, 0.4);
+    padding: 14px 22px;
+    border-radius: 100px;
+    font-size: 13px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s var(--ease-out-expo);
+    z-index: 200;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+  .toast em { color: var(--sand); font-family: var(--font-italic); font-style: italic; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav" id="topnav">
+  <a href="About.html" class="brand">
+    <span class="dot" style="width:8px; height:8px; background:var(--sand); border-radius:50%; box-shadow:0 0 18px rgba(200,169,110,0.8);"></span>
+    <span style="font-family: var(--font-display); font-size: 22px; letter-spacing: 0.18em; text-transform: uppercase;">Oasea</span>
+  </a>
+  <div class="nav-links">
+    <a href="About.html#what">About</a>
+    <a href="About.html#loop">How it Plays</a>
+    <a href="sponsors.html" style="color: var(--foam);">Sponsors</a>
+    <a href="https://play.oasea.earth" class="nav-play">Play Now →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero hero--sponsors" id="top">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <canvas id="rain-canvas" aria-hidden="true"></canvas>
+
+  <div class="hero-inner">
+    <span class="eyebrow">For studios, brands &amp; patrons</span>
+    <h1 style="font-size: clamp(3.6rem, 9vw, 6.8rem);">Sponsor an island.</h1>
+    <p class="tagline">Your name in the rain.</p>
+    <p class="pitch">Oasea is played by people who care about the things that grow slowly. Attach your name to it. Get credited in-game forever, celebrated on our channels, and known as a quiet ally of cozy, optimistic play.</p>
+    <div class="cta-row">
+      <a href="#tiers" class="btn-primary">See sponsor tiers <span class="arrow">→</span></a>
+      <a href="#benefits" class="btn-ghost">What you get</a>
+    </div>
+
+    <div class="trust-strip">
+      <div class="trust-stat">
+        <div class="num"><em>140k+</em></div>
+        <div class="lab">Players<br>since launch</div>
+      </div>
+      <div class="trust-stat">
+        <div class="num"><em>22 min</em></div>
+        <div class="lab">Median<br>session</div>
+      </div>
+      <div class="trust-stat">
+        <div class="num"><em>4.9 ★</em></div>
+        <div class="lab">Player<br>rating</div>
+      </div>
+      <div class="trust-stat">
+        <div class="num"><em>0</em></div>
+        <div class="lab">Ads or<br>trackers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="section-light" id="benefits">
+  <div class="wrap">
+    <div class="section-label"><span class="num">01</span> Why sponsor Oasea</div>
+    <h2 class="section-title">A small bet on something <em>quietly loved</em>.</h2>
+    <p class="lede">Most marketing buys you attention. Sponsoring Oasea buys you association — with patience, beauty, and a player base that'll remember your name long after a banner ad has faded.</p>
+
+    <div class="benefits-grid">
+      <div class="benefit">
+        <span class="benefit-num">01</span>
+        <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <h3>Attached to a <em>positive</em> game</h3>
+        <p>No combat. No dark patterns. No ads. Players associate sponsors with calm, beauty, and care — emotional adjacencies money can't usually buy.</p>
+      </div>
+      <div class="benefit">
+        <span class="benefit-num">02</span>
+        <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2.6 6.5H22l-5.6 4.4L18.8 20 12 16l-6.8 4 2.4-7.1L2 8.5h7.4z"/></svg>
+        <h3>Forever in the <em>credits</em></h3>
+        <p>Permanent placement in the in-game credits screen, accessible from the main menu of every session, on every device, for as long as Oasea exists.</p>
+      </div>
+      <div class="benefit">
+        <span class="benefit-num">03</span>
+        <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8z"/></svg>
+        <h3>A <em>real</em> social post</h3>
+        <p>An original, hand-crafted Instagram post welcoming you — not a stock template. Written by a human, in the voice of the game.</p>
+      </div>
+      <div class="benefit">
+        <span class="benefit-num">04</span>
+        <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+        <h3>An island <em>named</em> for you</h3>
+        <p>At Reef tier and above, one of the procedurally seeded islands carries your name as its place-of-origin. Players who land there will see it.</p>
+      </div>
+      <div class="benefit">
+        <span class="benefit-num">05</span>
+        <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+        <h3>A <em>quarterly</em> impact letter</h3>
+        <p>A short, beautifully written letter every three months: who's playing, what's new, what we learned. Forwardable. Frame-able.</p>
+      </div>
+      <div class="benefit">
+        <span class="benefit-num">06</span>
+        <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>
+        <h3>An <em>asset pack</em> for your channels</h3>
+        <p>"Proud sponsor of Oasea" badges, social cut-downs, and a shared press kit you can use in pitches and decks. Made for you, ready to ship.</p>
+      </div>
+      <div class="benefit">
+        <span class="benefit-num">07</span>
+        <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+        <h3>First look at <em>new builds</em></h3>
+        <p>Sponsors see new biomes, weather systems, and features two weeks before public release — and get to leave a fingerprint on the roadmap.</p>
+      </div>
+      <div class="benefit">
+        <span class="benefit-num">08</span>
+        <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <h3>A <em>seat</em> at the table</h3>
+        <p>Lagoon &amp; Reef sponsors get a yearly 30-minute call with our team. Tell us where you're going. We'll tell you where the islands are headed.</p>
+      </div>
+      <div class="benefit">
+        <span class="benefit-num">09</span>
+        <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <h3>Funds go to <em>real</em> work</h3>
+        <p>100% of sponsorship revenue funds Oasea's ongoing development and a yearly donation to a coastal-restoration nonprofit. Audited, posted publicly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIERS -->
+<section class="section-night" id="tiers">
+  <div class="wrap">
+    <div class="section-label"><span class="num">02</span> Choose your tide</div>
+    <h2 class="section-title">Four tiers, named for <em>water</em>.</h2>
+    <p class="lede">Pick the size that fits. Every sponsor — Tide or Reef — gets credits, a social post, and the asset pack. Higher tiers get deeper waves.</p>
+
+    <div class="tiers-grid" id="tiers-grid">
+      <!-- TIDE -->
+      <div class="tier" data-tier="tide" data-price="49">
+        <svg class="tier-glyph" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M3 22c3-2 5-2 8 0s5 2 8 0 5-2 8 0 5 2 8 0M3 16c3-2 5-2 8 0s5 2 8 0 5-2 8 0 5 2 8 0"/>
+        </svg>
+        <div class="tier-name">Tide</div>
+        <div class="tier-sub">For individuals</div>
+        <div class="tier-price"><span class="cur">$</span>49<span class="per">/ month</span></div>
+        <div class="tier-tag">"You showed up. That matters."</div>
+        <ul>
+          <li class="has">Name in the in-game credits</li>
+          <li class="has">Quarterly impact letter</li>
+          <li class="has">"Sponsor" badge in your account</li>
+          <li class="has">Sponsor-only Discord channel</li>
+        </ul>
+        <button class="pick-btn">Choose Tide</button>
+      </div>
+
+      <!-- COVE -->
+      <div class="tier featured selected" data-tier="cove" data-price="199">
+        <svg class="tier-glyph" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M2 24c4 0 5-8 10-8s7 8 12 8M2 18c4 0 6-12 10-12s7 12 12 12"/>
+        </svg>
+        <div class="tier-name">Cove</div>
+        <div class="tier-sub">For small studios &amp; brands</div>
+        <div class="tier-price"><span class="cur">$</span>199<span class="per">/ month</span></div>
+        <div class="tier-tag">"A shape that lets things settle."</div>
+        <ul>
+          <li class="has">Everything in Tide</li>
+          <li class="has">Logo + link in credits screen</li>
+          <li class="has">Original Instagram welcome post</li>
+          <li class="has">"Proud Sponsor" asset pack</li>
+          <li class="has">Early access to new builds</li>
+        </ul>
+        <button class="pick-btn">Choose Cove</button>
+      </div>
+
+      <!-- LAGOON -->
+      <div class="tier" data-tier="lagoon" data-price="499">
+        <svg class="tier-glyph" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4">
+          <ellipse cx="18" cy="18" rx="14" ry="9"/>
+          <ellipse cx="18" cy="18" rx="9" ry="5"/>
+        </svg>
+        <div class="tier-name">Lagoon</div>
+        <div class="tier-sub">For mid-size partners</div>
+        <div class="tier-price"><span class="cur">$</span>499<span class="per">/ month</span></div>
+        <div class="tier-tag">"Calm water, deep enough to swim."</div>
+        <ul>
+          <li class="has">Everything in Cove</li>
+          <li class="has">An island named for you</li>
+          <li class="has">Featured spot in the credits</li>
+          <li class="has">Yearly 30-min strategy call</li>
+          <li class="has">Co-branded social campaign</li>
+        </ul>
+        <button class="pick-btn">Choose Lagoon</button>
+      </div>
+
+      <!-- REEF -->
+      <div class="tier" data-tier="reef" data-price="1499">
+        <svg class="tier-glyph" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M6 30v-6c0-3 2-5 4-5s2 2 2 4v7M14 30v-12c0-3 2-5 4-5s2 2 2 5v12M22 30v-9c0-3 2-5 4-5s2 2 2 4v10"/>
+          <path d="M2 30h32"/>
+        </svg>
+        <div class="tier-name">Reef</div>
+        <div class="tier-sub">For founding partners</div>
+        <div class="tier-price"><span class="cur">$</span>1499<span class="per">/ month</span></div>
+        <div class="tier-tag">"The thing the whole ecosystem grows on."</div>
+        <ul>
+          <li class="has">Everything in Lagoon</li>
+          <li class="has">A biome co-designed with you</li>
+          <li class="has">Top-of-credits "Founding Sponsor"</li>
+          <li class="has">Quarterly creative call with the team</li>
+          <li class="has">Custom in-game weather event</li>
+          <li class="has">Hand-drawn thank-you in launch update</li>
+        </ul>
+        <button class="pick-btn">Choose Reef</button>
+      </div>
+    </div>
+
+    <p style="margin-top: 36px; text-align: center; color: var(--foam-dim); font-size: 14px;">
+      Annual sponsorship saves <em style="font-family: var(--font-italic); color: var(--sand);">two months</em>. Custom &amp; nonprofit tiers available — <a href="/cdn-cgi/l/email-protection#dba8abb4b5a8b4a99bb4baa8bebaf5bebaa9afb3" style="color: var(--sand-soft); text-decoration: underline; text-underline-offset: 3px;">write us</a>.
+    </p>
+  </div>
+</section>
+
+<!-- SIGNUP -->
+<section class="section-light" id="signup">
+  <div class="wrap">
+    <div class="section-label"><span class="num">03</span> Become a sponsor</div>
+    <h2 class="section-title">A few quick <em>details</em>.</h2>
+    <p class="lede">Tell us who to credit, drop a logo if you have one, and we'll have you in the next build within a week.</p>
+
+    <div class="signup-shell">
+      <form class="signup-form" id="sponsor-form" novalidate>
+        <h3>Sponsor <em>signup</em></h3>
+        <p class="form-sub">Your details are stored only to credit you and send your impact letters. Nothing else.</p>
+
+        <div class="selected-tier-read">
+          <div>
+            <div class="l">Selected tier</div>
+            <div class="v"><span id="srt-name">Cove</span> <span class="price" id="srt-price">$199 / mo</span></div>
+          </div>
+          <button type="button" id="change-tier">Change</button>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="f-name">Your name<span class="req">*</span></label>
+            <input type="text" id="f-name" name="name" required placeholder="Jamie Rivera" autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="f-org">Organization (optional)</label>
+            <input type="text" id="f-org" name="org" placeholder="Saltwater Studio" autocomplete="organization">
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="f-email">Email<span class="req">*</span></label>
+            <input type="email" id="f-email" name="email" required placeholder="you@studio.com" autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="f-url">Website / link (optional)</label>
+            <input type="url" id="f-url" name="url" placeholder="https://yourstudio.com" autocomplete="url">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Credit display name<span class="req">*</span></label>
+          <input type="text" id="f-credit" name="credit" required placeholder="How you'd like to appear in the credits, e.g. 'Saltwater Studio' or 'In memory of Lou'">
+        </div>
+
+        <div class="field">
+          <label for="f-logo">Logo (optional, SVG/PNG, max 2 MB)</label>
+          <label class="logo-drop" id="logo-drop">
+            <input type="file" id="f-logo" name="logo" accept="image/svg+xml,image/png,image/jpeg,image/webp">
+            <div class="logo-preview" id="logo-preview">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            </div>
+            <div class="copy">
+              <div class="t" id="logo-t">Drop your logo here</div>
+              <div class="s" id="logo-s">or click to browse — square or wide formats both work</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="field">
+          <label for="f-note">A note for the team (optional)</label>
+          <textarea id="f-note" name="note" placeholder="Anything you'd like us to know — a dedication, a campaign timing, a hello."></textarea>
+        </div>
+
+        <div class="checkbox-row">
+          <input type="checkbox" id="f-agree" required>
+          <label for="f-agree" style="font-size: 13px; letter-spacing: normal; text-transform: none; color: var(--section-ink-soft); font-weight: 400;">
+            I'm authorized to enter this sponsorship, and I agree to the <a href="#" style="color: var(--ocean); text-decoration: underline; text-underline-offset: 3px;">sponsor terms</a>. You may cancel anytime.
+          </label>
+        </div>
+
+        <div class="submit-row">
+          <button type="submit" class="btn-stripe" id="submit-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lock"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Continue to Stripe — <span id="submit-price">$199 / mo</span>
+          </button>
+          <span class="stripe-note">
+            <svg class="lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Secured by Stripe
+          </span>
+        </div>
+      </form>
+
+      <aside class="next-card">
+        <h4>What happens <em>next</em></h4>
+        <ol class="next-list">
+          <li><strong>Today</strong>You'll be redirected to Stripe to complete checkout. No charge before you confirm.</li>
+          <li><strong>Within 24 hours</strong>A real person from our team writes back personally to welcome you.</li>
+          <li><strong>This week</strong>Your name &amp; logo are added to the credits in the next build push.</li>
+          <li><strong>The week after</strong>Your Instagram welcome post goes live; we'll tag you.</li>
+          <li><strong>Quarterly</strong>You receive your impact letter and a private build link.</li>
+        </ol>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- CURRENT SPONSORS -->
+<section class="section-night-2" id="wall">
+  <div class="wrap">
+    <div class="section-label"><span class="num">04</span> The wall</div>
+    <h2 class="section-title">Already <em>aboard</em>.</h2>
+    <p class="lede">A few of the studios, teams, and quiet patrons keeping Oasea afloat.</p>
+
+    <div class="sponsor-wall">
+      <div class="sponsor-cell">Saltwater Studio</div>
+      <div class="sponsor-cell">Loomwork</div>
+      <div class="sponsor-cell">Petrichor &amp; Co.</div>
+      <div class="sponsor-cell">Driftline</div>
+      <div class="sponsor-cell">In memory of Lou</div>
+      <div class="sponsor-cell">Foglight</div>
+      <div class="sponsor-cell">Quiet Hours Press</div>
+      <div class="sponsor-cell">— anonymous —</div>
+      <div class="sponsor-cell">Halcyon Lab</div>
+      <div class="sponsor-cell">Tidewater Coffee</div>
+      <div class="sponsor-cell">Northwind Studio</div>
+      <div class="sponsor-cell empty">Your name here</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-light" id="faq">
+  <div class="wrap-narrow">
+    <div class="section-label"><span class="num">05</span> Sponsor FAQ</div>
+    <h2 class="section-title">Things people <em>ask</em>.</h2>
+
+    <div class="faq-list" id="faq-list">
+      <div class="faq-item open">
+        <button class="faq-q"><span>Is this a donation or a paid sponsorship?</span><span class="sign"></span></button>
+        <div class="faq-a">A paid sponsorship. You get tangible deliverables — credits, posts, asset packs, calls — in exchange for a recurring fee. We also publish a yearly transparency report showing where the money went.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>What kinds of brands do you accept?</span><span class="sign"></span></button>
+        <div class="faq-a">Anything that wouldn't feel out of place in a quiet, optimistic game about water and life. We say no to gambling, weapons, predatory products, and anything that conflicts with the spirit of the game. We'd rather have ten good sponsors than a hundred mismatched ones.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Can I cancel?</span><span class="sign"></span></button>
+        <div class="faq-a">Anytime. If you cancel, your credit stays through the end of the paid period and then comes down on the next build. We don't do surprise charges or fine-print.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Can I sponsor anonymously, or in someone's name?</span><span class="sign"></span></button>
+        <div class="faq-a">Yes. Plenty of our sponsors do — "in memory of," "for my daughter," or simply listed as "Anonymous." Just put what you want in the "credit display name" field.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Do you offer discounts for nonprofits or schools?</span><span class="sign"></span></button>
+        <div class="faq-a">Yes — write us at <a href="/cdn-cgi/l/email-protection#80f3f0efeef3eff2c0efe1f3e5e1aee5e1f2f4e8" style="color: var(--ocean); text-decoration: underline; text-underline-offset: 3px;"><span class="__cf_email__" data-cfemail="1e6d6e71706d716c5e717f6d7b7f307b7f6c6a76">[email&#160;protected]</span></a> and we'll set up a custom rate. We also have a "play-for-classrooms" program at no charge.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Where does the money go?</span><span class="sign"></span></button>
+        <div class="faq-a">Roughly 80% to ongoing Oasea development (the team is small; this is meaningful). 10% to infrastructure (servers, storage, CDN). 10% to a yearly donation to a coastal-restoration nonprofit, voted on by sponsors. Audited &amp; posted publicly each January.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="section-night-2 closing" id="cta">
+  <h2>The water's <em>warm</em>.</h2>
+  <p>Pick a tier, add your name, and we'll do the rest.</p>
+  <div class="cta-row" style="justify-content:center;">
+    <a href="#tiers" class="btn-primary">Become a sponsor <span class="arrow">→</span></a>
+    <a href="/cdn-cgi/l/email-protection#81f2f1eeeff2eef3c1eee0f2e4e0afe4e0f3f5e9" class="btn-ghost">
+      <span class="iconify" data-icon="mdi:email-outline" style="font-size:16px;"></span>
+      Talk to us first
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="mark">Oasea</div>
+      <div class="tag">Every drop counts.</div>
+    </div>
+    <div>
+      <h4>The Game</h4>
+      <ul>
+        <li><a href="https://play.oasea.earth">Play now</a></li>
+        <li><a href="About.html#what">About</a></li>
+        <li><a href="About.html#loop">How it plays</a></li>
+        <li><a href="About.html#gallery">Screenshots</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Support us</h4>
+      <ul>
+        <li><a href="sponsors.html">Sponsorship</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#9cefecf3f2eff3eedcf3fdeff9fdb2f9fdeee8f4">Email the team</a></li>
+        <li><a href="#wall">Sponsor wall</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="press-kit.html">Press kit</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#0b7b796e78784b6f67626c637f6562656c2564796c">Contact</a></li>
+        <li><a href="#">Privacy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 DLightning Studios</span>
+    <span>Launched Earth Day, 2026</span>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <span id="toast-msg">Redirecting to <em>Stripe</em>…</span>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  /* ==========================================
+     NAV scroll state
+     ========================================== */
+  const nav = document.getElementById('topnav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  /* ==========================================
+     RAIN CANVAS (same as About hero)
+     ========================================== */
+  const canvas = document.getElementById('rain-canvas');
+  const ctx = canvas.getContext('2d');
+  let drops = [];
+  let rainOn = true;
+  function sizeCanvas() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+    const r = hero.getBoundingClientRect();
+    canvas.width = r.width * devicePixelRatio;
+    canvas.height = r.height * devicePixelRatio;
+    canvas.style.width = r.width + 'px';
+    canvas.style.height = r.height + 'px';
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+  }
+  function initDrops() {
+    const count = Math.min(120, Math.floor(window.innerWidth / 9));
+    drops = [];
+    for (let i = 0; i < count; i++) {
+      drops.push({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        len: 8 + Math.random() * 16,
+        speed: 2 + Math.random() * 3.5,
+        alpha: 0.15 + Math.random() * 0.35,
+      });
+    }
+  }
+  function rainStep() {
+    if (!rainOn) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = 'rgba(220, 235, 250, 0.5)';
+    ctx.lineWidth = 1;
+    drops.forEach(d => {
+      ctx.globalAlpha = d.alpha;
+      ctx.beginPath();
+      ctx.moveTo(d.x, d.y);
+      ctx.lineTo(d.x - 1, d.y + d.len);
+      ctx.stroke();
+      d.y += d.speed;
+      d.x -= 0.3;
+      if (d.y > window.innerHeight) {
+        d.y = -d.len;
+        d.x = Math.random() * (window.innerWidth + 100);
+      }
+    });
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(rainStep);
+  }
+  sizeCanvas(); initDrops(); rainStep();
+  window.addEventListener('resize', () => { sizeCanvas(); initDrops(); });
+
+  /* ==========================================
+     TIER SELECTION
+     ========================================== */
+  const tiers = document.querySelectorAll('.tier');
+  const TIER_LABELS = {
+    tide:   { name: 'Tide',   price: 49 },
+    cove:   { name: 'Cove',   price: 199 },
+    lagoon: { name: 'Lagoon', price: 499 },
+    reef:   { name: 'Reef',   price: 1499 },
+  };
+  let currentTier = 'cove';
+
+  function selectTier(t) {
+    currentTier = t;
+    tiers.forEach(el => el.classList.toggle('selected', el.dataset.tier === t));
+    const meta = TIER_LABELS[t];
+    document.getElementById('srt-name').textContent = meta.name;
+    document.getElementById('srt-price').textContent = `$${meta.price} / mo`;
+    document.getElementById('submit-price').textContent = `$${meta.price} / mo`;
+  }
+  tiers.forEach(el => {
+    el.addEventListener('click', () => selectTier(el.dataset.tier));
+  });
+  document.getElementById('change-tier').addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('tiers').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  /* ==========================================
+     LOGO UPLOAD
+     ========================================== */
+  const logoInput = document.getElementById('f-logo');
+  const logoDrop = document.getElementById('logo-drop');
+  const logoPreview = document.getElementById('logo-preview');
+  const logoT = document.getElementById('logo-t');
+  const logoS = document.getElementById('logo-s');
+
+  function showLogo(file) {
+    if (!file) return;
+    if (file.size > 2 * 1024 * 1024) {
+      logoT.textContent = 'File too large';
+      logoS.textContent = 'Max 2 MB. Try a compressed PNG or SVG.';
+      logoPreview.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>';
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      logoPreview.innerHTML = `<img src="${e.target.result}" alt="Logo preview">`;
+      logoT.textContent = file.name;
+      logoS.textContent = `${(file.size / 1024).toFixed(0)} KB · click to change`;
+    };
+    reader.readAsDataURL(file);
+  }
+  logoInput.addEventListener('change', (e) => showLogo(e.target.files[0]));
+  ['dragenter','dragover'].forEach(ev => logoDrop.addEventListener(ev, (e) => {
+    e.preventDefault(); logoDrop.classList.add('dragover');
+  }));
+  ['dragleave','drop'].forEach(ev => logoDrop.addEventListener(ev, (e) => {
+    e.preventDefault(); logoDrop.classList.remove('dragover');
+  }));
+  logoDrop.addEventListener('drop', (e) => {
+    const file = e.dataTransfer.files[0];
+    if (file) {
+      logoInput.files = e.dataTransfer.files;
+      showLogo(file);
+    }
+  });
+
+  /* ==========================================
+     FAQ
+     ========================================== */
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  /* ==========================================
+     FORM SUBMIT — Stripe placeholder
+     ========================================== */
+  const form = document.getElementById('sponsor-form');
+  const toast = document.getElementById('toast');
+  const toastMsg = document.getElementById('toast-msg');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    // basic validation
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const credit = form.credit.value.trim();
+    const agree = document.getElementById('f-agree').checked;
+    if (!name || !email || !credit || !agree) {
+      toastMsg.innerHTML = `Please complete the <em>required</em> fields.`;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2400);
+      return;
+    }
+
+    // ====== STRIPE CHECKOUT PLACEHOLDER ======
+    // TODO: Replace this block with your Stripe integration.
+    //
+    // Recommended approach (server-side):
+    //   1. POST { tier: currentTier, name, email, credit, org, url, note, logo } to /api/create-checkout-session
+    //   2. Server creates a Stripe Checkout Session with the matching Price ID:
+    //         tide   -> price_...
+    //         cove   -> price_...
+    //         lagoon -> price_...
+    //         reef   -> price_...
+    //   3. Server returns { url } and we window.location.href = url.
+    //
+    // Or with Stripe Payment Links, just map currentTier -> a hard-coded URL:
+    //   const STRIPE_LINKS = {
+    //     tide:   'https://buy.stripe.com/REPLACE_TIDE',
+    //     cove:   'https://buy.stripe.com/REPLACE_COVE',
+    //     lagoon: 'https://buy.stripe.com/REPLACE_LAGOON',
+    //     reef:   'https://buy.stripe.com/REPLACE_REEF',
+    //   };
+    //   window.location.href = STRIPE_LINKS[currentTier];
+
+    const tierLabel = TIER_LABELS[currentTier].name;
+    toastMsg.innerHTML = `Connecting you to <em>Stripe</em> for ${tierLabel} — placeholder, link this up next.`;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 4000);
+    console.log('[Stripe placeholder] Would checkout:', {
+      tier: currentTier,
+      price: TIER_LABELS[currentTier].price,
+      name, email, credit,
+      org: form.org.value,
+      url: form.url.value,
+      note: form.note.value,
+      logo: logoInput.files[0]?.name || null,
+    });
+  });
+
+  // initial sync
+  selectTier(currentTier);
+</script>
+</body>
+</html>
