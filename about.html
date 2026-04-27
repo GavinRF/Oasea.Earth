@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oasea — About</title>
+<meta name="description" content="Oasea is a game about water and regeneration. Sculpt terrain, guide the rain, watch life return. Free in your browser.">
+<script src="https://code.iconify.design/2/2.0.0/iconify.min.js"></script>
+<link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav" id="topnav">
+  <a href="#" class="brand">
+    <img class="dot" src="img/logo/oasea-logo_drop-icon-white.svg" alt="">
+    <span>Oasea</span>
+  </a>
+  <div class="nav-links">
+    <a href="#what">About</a>
+    <a href="#loop">How it Plays</a>
+    <a href="#gallery">Screens</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://play.oasea.earth" class="nav-play">Play Now →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true">
+    <img src="img/about/island-bg.webp" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.45;">
+  </div>
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <canvas id="rain-canvas" aria-hidden="true"></canvas>
+
+  <div class="hero-inner" style="background:rgba(13,27,42,0.65);border-radius:16px;padding:clamp(32px,5vw,56px) clamp(28px,6vw,64px);border:1px solid rgba(232,244,248,0.07);">
+    <span class="eyebrow">A game about water and life</span>
+    <h1>Oasea</h1>
+    <p class="tagline">Every drop counts.</p>
+    <p class="pitch">Oasea was green once. Then the rains stopped. Sculpt terrain, guide the rain home, and watch life return to the islands — one drop at a time.</p>
+    <div class="cta-row">
+      <a href="https://play.oasea.earth" class="btn-primary">Play <span class="arrow">→</span></a>
+      <a href="#trailer" class="btn-ghost">Watch the trailer</a>
+    </div>
+    <div class="hero-meta">
+      <div><span class="dot"></span> Free in your browser</div>
+      <div><span class="dot"></span> Desktop &amp; mobile</div>
+      <div><span class="dot"></span> No downloads, no ads</div>
+    </div>
+  </div>
+
+  <div class="scroll-cue" aria-hidden="true" style="bottom:10px;">
+    <span>Scroll</span>
+    <div class="line"></div>
+  </div>
+</section>
+
+<!-- WHAT IS OASEA -->
+<section class="section-light" id="what">
+  <div class="wrap">
+    <div class="what-grid">
+      <div class="what-text">
+        <div class="section-label"><span class="num">01</span> The Game</div>
+        <h2 class="section-title">An eco-puzzler where you guide water and watch the magnificent return of <em>life</em>.</h2>
+        <p class="lede">Oasea is a meditative island restoration game built around a journey from island to island. You'll shape the terrain, respond to unpredictable rain, and work with nature's systems to restore desolate landscapes.</p>
+        <p class="lede" style="margin-top: 18px;">Enter a world in dynamic transformation — barren rock becomes forest, desert becomes wetland, silence becomes song. No combat. No timers. Just you, the wind, and a world that yearns for what it used to be.</p>
+      </div>
+      <div>
+        <div class="floating-card">
+          <img src="img/about/sculpt-rain.png" alt="Sculpting terrain in the rain" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
+          <div class="caption">"During the storm, race to save droplets."</div>
+          <div class="label">in-game · alpha build</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE LOOP -->
+<section class="section-light" id="loop" style="padding-top: 0;">
+  <div class="wrap">
+    <div class="section-label"><span class="num">02</span> How it plays</div>
+    <h2 class="section-title">Simple actions, <em>endless</em> outcomes.</h2>
+    <p class="lede">Every drop counts and every decision ripples outward.</p>
+
+    <div class="loop-grid">
+      <div class="loop-card">
+        <svg class="loop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 18l4-6 4 4 4-8 6 10H3z"/></svg>
+        <div class="loop-step">01 <span class="of">of three</span></div>
+        <h3><em>Sculpt</em> the land.</h3>
+        <p>Raise peaks, dig valleys, cut channels. The terrain you shape decides where water will go.</p>
+      </div>
+      <div class="loop-card">
+        <svg class="loop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3c-3 5-5 8-5 11a5 5 0 0 0 10 0c0-3-2-6-5-11z"/></svg>
+        <div class="loop-step">02 <span class="of">of three</span></div>
+        <h3><em>Guide</em> the rain.</h3>
+        <p>Intense storms and rogue clouds cross your island. Where they pass, water falls; where water collects, something grows.</p>
+      </div>
+      <div class="loop-card">
+        <svg class="loop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21C12 21 6 18 6 12a6 6 0 0 1 12 0c0 6-6 9-6 9z"/><line x1="12" y1="2" x2="12" y2="12"/></svg>
+        <div class="loop-step">03 <span class="of">of three</span></div>
+        <h3><em>Watch</em> life return.</h3>
+        <p>Moss, then grass, then trees. Insects, then birds, then stabilized weather. The island takes it from here.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAILER -->
+<section class="section-night" id="trailer">
+  <div class="wrap">
+    <div class="section-label"><span class="num">03</span> In motion</div>
+    <h2 class="section-title">Ninety seconds of <em>island life</em>.</h2>
+    <p class="lede" style="margin-bottom: 48px;">The best way to understand Oasea.</p>
+
+    <div class="video-wrap" role="button" tabindex="0" aria-label="Play Oasea trailer">
+      <img src="img/about/splash-2.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
+      <div class="play-button" aria-hidden="true"><span class="ring"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section-night-2" id="gallery">
+  <div class="wrap">
+    <div class="gallery-header">
+      <div>
+        <div class="section-label"><span class="num">04</span> Screenshots</div>
+        <h2 class="section-title">Every island is <em>different</em>.</h2>
+      </div>
+      <div class="gallery-nav">
+        <button id="g-prev" aria-label="Previous">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button id="g-next" aria-label="Next">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="marquee">
+      <div class="marquee-track" id="marquee-track">
+        <!-- filled by JS -->
+      </div>
+    </div>
+
+    <div class="gallery-counter">
+      <span id="g-current">01</span>
+      <div class="bar"><span id="g-bar"></span></div>
+      <span id="g-total">08</span>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" aria-modal="true" role="dialog" aria-label="Screenshot viewer">
+  <div id="lightbox-backdrop"></div>
+  <button id="lightbox-close" aria-label="Close">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <button id="lightbox-prev" aria-label="Previous">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <div id="lightbox-content">
+    <img id="lightbox-img" src="" alt="">
+    <div id="lightbox-caption">
+      <span id="lightbox-title"></span>
+      <span id="lightbox-meta"></span>
+      <a id="lightbox-dl" download aria-label="Download image">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v10M7 10l5 5 5-5"/><path d="M3 20h18"/></svg>
+        Download
+      </a>
+    </div>
+  </div>
+  <button id="lightbox-next" aria-label="Next">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+</div>
+
+<!-- QUOTE / STORY -->
+<section class="section-night-2" id="story" style="padding-top: 0;">
+  <div class="wrap">
+    <div class="quotes-row">
+      <div class="quote-wrap" style="text-align:left;">
+        <div class="mark">&ldquo;</div>
+        <blockquote>I sculpted the land and guided the water to the collection zone. <em>Then the island just... came alive.</em>  I felt like I'd done something good.</blockquote>
+        <cite>— early player, March 2026</cite>
+      </div>
+      <div class="quote-wrap" style="text-align:left;">
+        <div class="mark">&ldquo;</div>
+        <blockquote><em>The water shows you where it wants to go.</em> I was taking care of a tiny world and I wanted to make it bigger.</blockquote>
+        <cite>— early player, March 2026</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section-light" id="features">
+  <div class="wrap">
+    <div class="section-label"><span class="num">05</span> What's inside</div>
+    <h2 class="section-title">Tiny islands, <em>deep</em> world.</h2>
+
+    <div class="features-grid">
+      <div class="feature">
+        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+        <h3>Procedural islands</h3>
+        <p>No two seeds the same. Every island starts broken and beautiful.</p>
+      </div>
+      <div class="feature">
+        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 16s1-2 4-2 5 2 8 2 4-2 4-2"/><path d="M4 12s1-2 4-2 5 2 8 2 4-2 4-2"/><path d="M4 8s1-2 4-2 5 2 8 2 4-2 4-2"/></svg>
+        <h3>Living water</h3>
+        <p>Real fluid simulation. Rivers carve. Lakes fill. Puddles evaporate.</p>
+      </div>
+      <div class="feature">
+        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="4"/></svg>
+        <h3>Dynamic weather</h3>
+        <p>Clouds, storms, evaporation. Mornings are misty. Dusks are warm.</p>
+      </div>
+      <div class="feature">
+        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 8h1a4 4 0 0 1 0 8h-1M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"/></svg>
+        <h3>Cozy pace</h3>
+        <p>Save anywhere. Play for 3 minutes or 3 hours. The island waits.</p>
+      </div>
+      <div class="feature">
+        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+        <h3>Works anywhere</h3>
+        <p>Desktop, tablet, phone. Just open a browser tab. That's it.</p>
+      </div>
+      <div class="feature">
+        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V5a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
+        <h3>Share your island</h3>
+        <p>Every island has a URL. Send it to a friend and they'll see the same place.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-night" id="faq">
+  <div class="wrap-narrow">
+    <div class="section-label"><span class="num">06</span> Common questions</div>
+    <h2 class="section-title">Things people <em>ask</em>.</h2>
+
+    <div class="faq-list" id="faq-list">
+      <div class="faq-item open">
+        <button class="faq-q"><span>Is it really free?</span><span class="sign"></span></button>
+        <div class="faq-a">Yes. Oasea is free to play in any modern browser. No ads, no tracking, no account required. If you love it, there's additional content for purchase. That's the whole business model.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Does it save my progress?</span><span class="sign"></span></button>
+        <div class="faq-a">Your progress saves locally in your browser automatically. If you create an account (optional, free), it syncs across devices and gets a recovery URL.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Will it run on my phone?</span><span class="sign"></span></button>
+        <div class="faq-a">If your phone is from the last five years or so, yes. We test on iOS 15+ and Android 10+. It plays beautifully on tablets and desktop.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>How long is it?</span><span class="sign"></span></button>
+        <div class="faq-a">There's approximately 30-45 mins of story mode, then another hour of bonus levels. Most players hit their first restored island in 2–3 minutes. After that, there are daily challenges, and optional level-packs.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Who made this?</span><span class="sign"></span></button>
+        <div class="faq-a">A very small team at Dlightning Studios. We spent three years crafting an experience that met our standards for quality and accessibility. Additional credits are in the game menu.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>Is there a mobile app?</span><span class="sign"></span></button>
+        <div class="faq-a">Kinda. The browser version works great on all of your internet connected devices. A progressive web app (PWA) install is available, which makes it feel just like a native app.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING / PLAY -->
+<section class="section-night-2 closing" id="play">
+  <h2>Ready when <em>you are</em>.</h2>
+  <p>Visit an island. Wait for the rain. See life return.</p>
+  <div class="cta-row" style="justify-content:center;">
+    <a href="https://play.oasea.earth" class="btn-primary">Play Oasea <span class="arrow">→</span></a>
+    <a href="https://www.instagram.com/oasea_islands/" class="btn-ghost" target="_blank" rel="noopener">
+      <span class="iconify" data-icon="mdi:instagram" style="font-size:16px;"></span>
+      Follow along
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="mark">Oasea</div>
+      <div class="tag">Every drop counts.</div>
+    </div>
+    <div>
+      <h4>The Game</h4>
+      <ul>
+        <li><a href="https://play.oasea.earth">Play now</a></li>
+        <li><a href="#what">About</a></li>
+        <li><a href="#loop">How it plays</a></li>
+        <li><a href="#gallery">Screenshots</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Community</h4>
+      <ul>
+        <li><a href="https://www.instagram.com/oasea_islands/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="#">Discord</a></li>
+        <li><a href="#">Share an island</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="press-kit.html">Press kit</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#f78785928484b7939b9e909f83999e9990d9988590">Contact</a></li>
+        <li><a href="#">Privacy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Dlightning Studios</span>
+    <span>Launched Earth Day, 2026</span>
+  </div>
+</footer>
+
+<!-- TWEAKS PANEL -->
+<div id="tweaks-panel">
+  <h4>Tweaks</h4>
+
+  <div class="tweak-row">
+    <label>Hero theme</label>
+    <div class="tweak-seg" data-key="theme">
+      <button data-v="cinematic">Cinematic</button>
+      <button data-v="dusk">Dusk</button>
+      <button data-v="dawn">Dawn</button>
+    </div>
+  </div>
+
+  <div class="tweak-row">
+    <label>Gallery treatment</label>
+    <div class="tweak-seg" data-key="gallery">
+      <button data-v="marquee">Marquee</button>
+      <button data-v="focus">Focus</button>
+      <button data-v="grid">Grid</button>
+    </div>
+  </div>
+
+  <div class="tweak-row">
+    <label>Copy tone</label>
+    <div class="tweak-seg" data-key="tone">
+      <button data-v="poetic">Poetic</button>
+      <button data-v="plain">Plain</button>
+    </div>
+  </div>
+
+  <div class="tweak-toggle">
+    <label style="font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(232,244,248,0.5);">Rain</label>
+    <div class="tweak-switch on" data-key="rain"></div>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  /* ==========================================
+     TWEAKABLE DEFAULTS (persisted by host)
+     ========================================== */
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "theme": "cinematic",
+    "gallery": "marquee",
+    "tone": "poetic",
+    "rain": true
+  }/*EDITMODE-END*/;
+
+  const state = { ...TWEAK_DEFAULTS };
+
+  /* ==========================================
+     SCREENSHOT PLACEHOLDERS
+     ========================================== */
+  const SHOTS = [
+    { title: "Rain over the gap",          meta: "Weather",    img: "img/about/gap-rain.png" },
+    { title: "Water pools from above",    meta: "Hydrology",  img: "img/about/birds-eye-pools.png" },
+    { title: "Golden hour",               meta: "Scenic",     img: "img/about/golden-hour-sculpt.png" },
+    { title: "Manta rays and rainbow",    meta: "Wildlife",   img: "img/about/manta-rainbow.png" },
+    { title: "Whales passing by",         meta: "Wildlife",   img: "img/about/whales-magic.png" },
+    { title: "Volcanic night chain",      meta: "Lava",       img: "img/about/lava-night-chain.png" },
+    { title: "Flight to the island",      meta: "Wildlife",   img: "img/about/flight-to-island.png" },
+    { title: "Ancient stepwell",          meta: "Discovery",  img: "img/about/stepwell-golden.png" },
+    { title: "Red ring incoming",         meta: "Puzzle",     img: "img/about/red-ring-hit.png" },
+    { title: "Sailing down the cliff",    meta: "Scenic",     img: "img/about/sail-down-cliff.png" },
+    { title: "Hydro interior",            meta: "Hydrology",  img: "img/about/hydro-interior.png" },
+    { title: "Stone barge",               meta: "Scenic",     img: "img/about/stone-barge.png" },
+    { title: "Night adrift",               meta: "Scenic",     img: "img/about/adrift-night.png" },
+    { title: "Whales in the deep",         meta: "Wildlife",   img: "img/about/whale-deep.png" },
+    { title: "Sculpting away",         meta: "Scenic",   img: "img/about/sculpt-up.png" },
+  ];
+
+  /* ==========================================
+     BUILD GALLERY
+     ========================================== */
+  const track = document.getElementById('marquee-track');
+  SHOTS.forEach((s, i) => {
+    const el = document.createElement('div');
+    el.className = 'shot';
+    el.innerHTML = `
+      <img src="${s.img}" alt="${s.title}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
+      <a class="shot-dl" href="${s.img}" download title="Download ${s.title}" style="position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;background:rgba(13,27,42,0.6);border:1px solid rgba(232,244,248,0.2);display:flex;align-items:center;justify-content:center;color:var(--foam);opacity:0;transition:opacity 0.2s ease;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v10M7 10l5 5 5-5"/><path d="M3 20h18"/></svg>
+      </a>
+      <div class="shot-cap">
+        <span class="cap-title">${s.title}</span>
+        <span class="cap-meta">${s.meta}</span>
+      </div>`;
+    track.appendChild(el);
+  });
+  document.getElementById('g-total').textContent = String(SHOTS.length).padStart(2, '0');
+
+  let gIdx = 0;
+  function renderGallery() {
+    const shots = track.querySelectorAll('.shot');
+    if (!shots.length) return;
+    const shotW = shots[0].getBoundingClientRect().width + 22;
+    if (state.gallery === 'focus') {
+      // one centered, others dim
+      track.style.transform = `translateX(calc(50% - ${shotW * (gIdx + 0.5) - 11}px))`;
+      shots.forEach((s, i) => {
+        s.style.opacity = i === gIdx ? '1' : '0.35';
+        s.style.transform = i === gIdx ? 'translateY(0) scale(1.02)' : 'translateY(0) scale(0.9)';
+      });
+    } else if (state.gallery === 'grid') {
+      track.style.flexWrap = 'wrap';
+      track.style.transform = 'translateX(0)';
+      shots.forEach(s => {
+        s.style.width = 'calc(33.333% - 15px)';
+        s.style.opacity = '1'; s.style.transform = 'none';
+      });
+    } else {
+      // marquee — center the active shot in the visible area
+      track.style.flexWrap = 'nowrap';
+      shots.forEach(s => { s.style.width = ''; s.style.opacity = '1'; s.style.transform = ''; });
+      const paddingLeft = parseFloat(getComputedStyle(marqueeEl).paddingLeft);
+      const marqueeWidth = marqueeEl.clientWidth;
+      const shotWidth = shotW - 22; // strip the gap
+      track.style.transform = `translateX(${marqueeWidth / 2 - paddingLeft - gIdx * shotW - shotWidth / 2}px)`;
+    }
+    document.getElementById('g-current').textContent = String(gIdx + 1).padStart(2, '0');
+    document.getElementById('g-bar').style.width = `${((gIdx + 1) / SHOTS.length) * 100}%`;
+  }
+  document.getElementById('g-prev').addEventListener('click', () => {
+    gIdx = (gIdx - 1 + SHOTS.length) % SHOTS.length;
+    renderGallery();
+  });
+  document.getElementById('g-next').addEventListener('click', () => {
+    gIdx = (gIdx + 1) % SHOTS.length;
+    renderGallery();
+  });
+
+  // Keyboard arrows (gallery — only when lightbox is closed)
+  window.addEventListener('keydown', (e) => {
+    if (document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'ArrowLeft')  { gIdx = (gIdx - 1 + SHOTS.length) % SHOTS.length; renderGallery(); }
+    if (e.key === 'ArrowRight') { gIdx = (gIdx + 1) % SHOTS.length; renderGallery(); }
+  });
+
+  // Swipe / drag
+  const marqueeEl = document.querySelector('.marquee');
+  let dragStartX = null;
+  let isDragging = false;
+
+  function onDragStart(x) { dragStartX = x; isDragging = false; }
+  function onDragMove(x)  { if (Math.abs(x - dragStartX) > 6) isDragging = true; }
+  function onDragEnd(x) {
+    if (dragStartX === null) return;
+    const delta = dragStartX - x;
+    if (Math.abs(delta) > 50) {
+      gIdx = delta > 0
+        ? (gIdx + 1) % SHOTS.length
+        : (gIdx - 1 + SHOTS.length) % SHOTS.length;
+      renderGallery();
+    }
+    dragStartX = null;
+  }
+
+  // Touch
+  marqueeEl.addEventListener('touchstart', (e) => onDragStart(e.touches[0].clientX), { passive: true });
+  marqueeEl.addEventListener('touchmove',  (e) => onDragMove(e.touches[0].clientX),  { passive: true });
+  marqueeEl.addEventListener('touchend',   (e) => onDragEnd(e.changedTouches[0].clientX));
+
+  // Mouse drag
+  marqueeEl.addEventListener('mousedown', (e) => { onDragStart(e.clientX); marqueeEl.style.cursor = 'grabbing'; });
+  window.addEventListener('mousemove', (e) => { if (dragStartX !== null) onDragMove(e.clientX); });
+  window.addEventListener('mouseup',   (e) => { onDragEnd(e.clientX); marqueeEl.style.cursor = ''; });
+  marqueeEl.addEventListener('click', (e) => { if (isDragging) e.stopPropagation(); }, true);
+
+  // Horizontal scroll (trackpad two-finger swipe)
+  // Accumulate deltaX so a light touch doesn't trigger; lock after each advance so one swipe = one slide.
+  let wheelAccum = 0;
+  let wheelSettleTimer = null;
+  let wheelLocked = false;
+  marqueeEl.addEventListener('wheel', (e) => {
+    if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) return;
+    e.preventDefault();
+    if (wheelLocked) return;
+    wheelAccum += e.deltaX;
+    clearTimeout(wheelSettleTimer);
+    wheelSettleTimer = setTimeout(() => { wheelAccum = 0; }, 200);
+    if (Math.abs(wheelAccum) > 60) {
+      gIdx = wheelAccum > 0 ? (gIdx + 1) % SHOTS.length : (gIdx - 1 + SHOTS.length) % SHOTS.length;
+      renderGallery();
+      wheelAccum = 0;
+      wheelLocked = true;
+      setTimeout(() => { wheelLocked = false; }, 600);
+    }
+  }, { passive: false });
+
+  window.addEventListener('resize', renderGallery);
+  renderGallery();
+
+  /* ==========================================
+     LIGHTBOX
+     ========================================== */
+  const lightbox     = document.getElementById('lightbox');
+  const lbImg        = document.getElementById('lightbox-img');
+  const lbTitle      = document.getElementById('lightbox-title');
+  const lbMeta       = document.getElementById('lightbox-meta');
+  const lbDl         = document.getElementById('lightbox-dl');
+  const lbBackdrop   = document.getElementById('lightbox-backdrop');
+
+  function openLightbox(idx) {
+    const s = SHOTS[idx];
+    lbImg.src = s.img;
+    lbImg.alt = s.title;
+    lbTitle.textContent = s.title;
+    lbMeta.textContent  = s.meta;
+    lbDl.href           = s.img;
+    lbDl.download       = s.title;
+    lightbox.dataset.idx = idx;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function lbNavigate(dir) {
+    const idx = ((+lightbox.dataset.idx + dir) + SHOTS.length) % SHOTS.length;
+    openLightbox(idx);
+    gIdx = idx;
+    renderGallery();
+  }
+
+  // Open on shot click (not after a drag)
+  track.addEventListener('click', (e) => {
+    if (isDragging) return;
+    const shot = e.target.closest('.shot');
+    if (!shot) return;
+    const idx = Array.from(track.children).indexOf(shot);
+    if (idx !== -1) openLightbox(idx);
+  });
+
+  lbBackdrop.addEventListener('click', closeLightbox);
+  document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+  document.getElementById('lightbox-prev').addEventListener('click', () => lbNavigate(-1));
+  document.getElementById('lightbox-next').addEventListener('click', () => lbNavigate(1));
+
+  // Keyboard — extend existing keydown handler
+  window.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape')     closeLightbox();
+    if (e.key === 'ArrowLeft')  lbNavigate(-1);
+    if (e.key === 'ArrowRight') lbNavigate(1);
+  });
+
+  /* ==========================================
+     FAQ
+     ========================================== */
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  /* ==========================================
+     NAV SCROLL STATE
+     ========================================== */
+  const nav = document.getElementById('topnav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  /* ==========================================
+     RAIN CANVAS
+     ========================================== */
+  const canvas = document.getElementById('rain-canvas');
+  const ctx = canvas.getContext('2d');
+  let drops = [];
+  let rainOn = true;
+  let rafId = null;
+
+  function sizeCanvas() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+    const r = hero.getBoundingClientRect();
+    canvas.width = r.width * devicePixelRatio;
+    canvas.height = r.height * devicePixelRatio;
+    canvas.style.width = r.width + 'px';
+    canvas.style.height = r.height + 'px';
+    ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+  }
+  function initDrops() {
+    const count = Math.min(140, Math.floor(window.innerWidth / 8));
+    drops = [];
+    for (let i = 0; i < count; i++) {
+      drops.push({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        len: 8 + Math.random() * 16,
+        speed: 2 + Math.random() * 3.5,
+        alpha: 0.15 + Math.random() * 0.35,
+      });
+    }
+  }
+  function rainStep() {
+    if (!rainOn) { rafId = null; return; }
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = 'rgba(220, 235, 250, 0.5)';
+    ctx.lineWidth = 1;
+    drops.forEach(d => {
+      ctx.globalAlpha = d.alpha;
+      ctx.beginPath();
+      ctx.moveTo(d.x, d.y);
+      ctx.lineTo(d.x - 1, d.y + d.len);
+      ctx.stroke();
+      d.y += d.speed;
+      d.x -= 0.3;
+      if (d.y > window.innerHeight) {
+        d.y = -d.len;
+        d.x = Math.random() * (window.innerWidth + 100);
+      }
+    });
+    ctx.globalAlpha = 1;
+    rafId = requestAnimationFrame(rainStep);
+  }
+  function startRain() {
+    if (rafId) return;
+    rainOn = true;
+    rainStep();
+  }
+  function stopRain() {
+    rainOn = false;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+  sizeCanvas();
+  initDrops();
+  startRain();
+  window.addEventListener('resize', () => {
+    sizeCanvas();
+    initDrops();
+  });
+
+  /* ==========================================
+     TWEAKS
+     ========================================== */
+  const tweaksPanel = document.getElementById('tweaks-panel');
+
+  function applyTheme(theme) {
+    const bg = document.querySelector('.hero-bg');
+    if (!bg) return;
+    if (theme === 'dusk') {
+      bg.style.background = `
+        radial-gradient(ellipse 80% 60% at 30% 40%, rgba(224, 123, 63, 0.45), transparent 60%),
+        radial-gradient(ellipse 70% 50% at 75% 60%, rgba(200, 169, 110, 0.4), transparent 60%),
+        linear-gradient(160deg, #2a1a10 0%, #c8704a 30%, #7a3420 60%, #1a0f14 100%)
+      `;
+    } else if (theme === 'dawn') {
+      bg.style.background = `
+        radial-gradient(ellipse 80% 60% at 30% 30%, rgba(255, 200, 150, 0.5), transparent 60%),
+        radial-gradient(ellipse 70% 50% at 75% 60%, rgba(150, 200, 220, 0.35), transparent 60%),
+        linear-gradient(160deg, #2a3448 0%, #c8a08a 30%, #7a8ea4 60%, #1a2838 100%)
+      `;
+    } else {
+      bg.style.background = ''; // back to CSS
+    }
+  }
+
+  const PLAIN_COPY = {
+    '.hero h1': 'Oasea',
+    '.hero .tagline': 'A cozy island-building game. Free in your browser.',
+    '.hero .pitch': 'Shape terrain, route rainfall, and watch an ecosystem rebuild itself. No timers, no combat, no ads — just a quiet sandbox that works on any device.'
+  };
+  const POETIC_COPY = {
+    '.hero h1': 'Oasea',
+    '.hero .tagline': 'Every drop counts.',
+    '.hero .pitch': "Oasea was green once. Then the rains stopped. Sculpt terrain, guide the rain home, and watch life return to the islands — one drop at a time."
+  };
+  function applyTone(tone) {
+    const map = tone === 'plain' ? PLAIN_COPY : POETIC_COPY;
+    Object.entries(map).forEach(([sel, txt]) => {
+      const el = document.querySelector(sel);
+      if (el) el.textContent = txt;
+    });
+  }
+
+  function applyGallery() { renderGallery(); }
+
+  function applyRain(on) {
+    if (on) startRain(); else stopRain();
+  }
+
+  function applyAll() {
+    applyTheme(state.theme);
+    applyTone(state.tone);
+    applyGallery();
+    applyRain(state.rain);
+
+    // reflect UI
+    document.querySelectorAll('.tweak-seg').forEach(seg => {
+      const key = seg.dataset.key;
+      seg.querySelectorAll('button').forEach(b => {
+        b.classList.toggle('on', b.dataset.v === state[key]);
+      });
+    });
+    document.querySelectorAll('.tweak-switch').forEach(sw => {
+      const key = sw.dataset.key;
+      sw.classList.toggle('on', !!state[key]);
+    });
+  }
+  applyAll();
+
+  function setTweak(key, value) {
+    state[key] = value;
+    applyAll();
+    try {
+      window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [key]: value } }, '*');
+    } catch (e) {}
+  }
+
+  document.querySelectorAll('.tweak-seg button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const key = btn.parentElement.dataset.key;
+      setTweak(key, btn.dataset.v);
+    });
+  });
+  document.querySelectorAll('.tweak-switch').forEach(sw => {
+    sw.addEventListener('click', () => {
+      const key = sw.dataset.key;
+      setTweak(key, !state[key]);
+    });
+  });
+
+  // Edit-mode protocol (register listener FIRST, then announce)
+  window.addEventListener('message', (e) => {
+    if (!e.data || !e.data.type) return;
+    if (e.data.type === '__activate_edit_mode') {
+      tweaksPanel.classList.add('visible');
+    } else if (e.data.type === '__deactivate_edit_mode') {
+      tweaksPanel.classList.remove('visible');
+    }
+  });
+  try {
+    window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+  } catch (e) {}
+
+</script>
+</body>
+</html>
