@@ -9,587 +9,48 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Fraunces:ital,wght@1,300;1,400;1,500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <script src="https://code.iconify.design/2/2.0.0/iconify.min.js"></script>
-<link rel="stylesheet" href="about.css">
-<style>
-  /* =====================================================================
-     SPONSORS — page-specific layer on top of about.css
-  ===================================================================== */
-
-  /* Hero variant for sponsors page (shorter than about hero) */
-  .hero.hero--sponsors {
-    min-height: 78svh;
-  }
-  .hero--sponsors .hero-bg {
-    background:
-      radial-gradient(ellipse 70% 55% at 30% 35%, rgba(0, 140, 200, 0.45), transparent 60%),
-      radial-gradient(ellipse 70% 50% at 80% 65%, rgba(200, 169, 110, 0.4), transparent 60%),
-      linear-gradient(160deg, #0a2540 0%, #0078b4 35%, #003d62 65%, #0d1b2a 100%);
-  }
-
-  /* Trust strip */
-  .trust-strip {
-    margin-top: 56px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 28px;
-    width: 100%;
-    max-width: 880px;
-  }
-  @media (max-width: 720px) {
-    .trust-strip { grid-template-columns: repeat(2, 1fr); }
-  }
-  .trust-stat {
-    text-align: center;
-    padding: 16px 8px;
-    border-left: 1px solid rgba(232, 244, 248, 0.1);
-  }
-  .trust-stat:first-child { border-left: none; }
-  .trust-stat .num {
-    font-family: var(--font-display);
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
-    color: var(--foam);
-    line-height: 1;
-    margin-bottom: 8px;
-    letter-spacing: 0.02em;
-  }
-  .trust-stat .num em {
-    font-family: var(--font-italic);
-    font-style: italic;
-    color: var(--sand);
-  }
-  .trust-stat .lab {
-    font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
-    color: rgba(232, 244, 248, 0.55);
-    font-weight: 300;
-  }
-
-  /* =====================================================================
-     BENEFITS GRID
-  ===================================================================== */
-  .benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    margin-top: 64px;
-  }
-  @media (max-width: 920px) { .benefits-grid { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 600px) { .benefits-grid { grid-template-columns: 1fr; } }
-
-  .benefit {
-    padding: 32px 28px;
-    border: 1px solid var(--section-rule);
-    border-radius: 14px;
-    background: rgba(255, 255, 255, 0.55);
-    backdrop-filter: blur(4px);
-    position: relative;
-    transition: transform 0.4s var(--ease-out-expo), border-color 0.3s ease, box-shadow 0.4s ease;
-  }
-  .benefit:hover {
-    transform: translateY(-3px);
-    border-color: rgba(0, 120, 180, 0.4);
-    box-shadow: 0 18px 50px rgba(13, 27, 42, 0.08);
-  }
-  .benefit-icon {
-    width: 30px; height: 30px;
-    color: var(--ocean);
-    margin-bottom: 18px;
-  }
-  .benefit-num {
-    position: absolute; top: 22px; right: 26px;
-    font-family: var(--font-display);
-    font-size: 13px;
-    color: var(--ocean-deep);
-    opacity: 0.4;
-    letter-spacing: 0.05em;
-  }
-  .benefit h3 {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: 24px;
-    margin-bottom: 10px;
-    letter-spacing: 0.01em;
-    color: var(--section-ink);
-  }
-  .benefit h3 em { font-family: var(--font-italic); font-style: italic; color: var(--ocean); }
-  .benefit p {
-    font-size: 14.5px;
-    line-height: 1.65;
-    color: var(--section-ink-soft);
-  }
-
-  /* =====================================================================
-     TIERS
-  ===================================================================== */
-  .tiers-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-    margin-top: 56px;
-  }
-  @media (max-width: 1100px) { .tiers-grid { grid-template-columns: repeat(2, 1fr); gap: 22px; } }
-  @media (max-width: 600px)  { .tiers-grid { grid-template-columns: 1fr; } }
-
-  .tier {
-    position: relative;
-    padding: 28px 24px 28px;
-    border: 1px solid rgba(232, 244, 248, 0.12);
-    border-radius: 16px;
-    background: rgba(232, 244, 248, 0.025);
-    display: flex; flex-direction: column;
-    transition: transform 0.4s var(--ease-out-expo), border-color 0.3s ease, background 0.3s ease, box-shadow 0.4s ease;
-    cursor: pointer;
-  }
-  .tier:hover {
-    transform: translateY(-4px);
-    border-color: rgba(200, 169, 110, 0.35);
-    background: rgba(232, 244, 248, 0.045);
-  }
-  .tier.selected {
-    border-color: var(--sand);
-    background: rgba(200, 169, 110, 0.08);
-    box-shadow: 0 20px 60px rgba(200, 169, 110, 0.12), 0 0 0 1px var(--sand) inset;
-  }
-  .tier.featured::before {
-    content: 'Most chosen';
-    position: absolute; top: -10px; left: 22px;
-    background: var(--sand);
-    color: var(--night);
-    padding: 4px 10px;
-    border-radius: 100px;
-    font-size: 9px; font-weight: 500;
-    letter-spacing: 0.22em; text-transform: uppercase;
-  }
-  .tier-glyph {
-    width: 36px; height: 36px;
-    color: var(--sand);
-    margin-bottom: 16px;
-    opacity: 0.85;
-  }
-  .tier-name {
-    font-family: var(--font-italic);
-    font-style: italic;
-    font-size: 22px;
-    color: var(--foam);
-    letter-spacing: 0.02em;
-    margin-bottom: 4px;
-  }
-  .tier-sub {
-    font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
-    color: rgba(232, 244, 248, 0.5);
-    margin-bottom: 22px;
-    font-weight: 300;
-  }
-  .tier-price {
-    font-family: var(--font-display);
-    font-size: 38px;
-    line-height: 1;
-    color: var(--foam);
-    margin-bottom: 4px;
-    letter-spacing: 0.01em;
-  }
-  .tier-price .cur { font-size: 18px; vertical-align: top; margin-right: 2px; opacity: 0.7; }
-  .tier-price .per {
-    font-family: var(--font-text);
-    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: rgba(232, 244, 248, 0.5);
-    font-weight: 300;
-    margin-left: 4px;
-  }
-  .tier-tag {
-    font-family: var(--font-italic); font-style: italic;
-    font-size: 13px;
-    color: var(--sand-soft);
-    margin-top: 14px;
-    margin-bottom: 22px;
-    line-height: 1.5;
-  }
-  .tier ul {
-    list-style: none;
-    padding-top: 18px;
-    border-top: 1px solid rgba(232, 244, 248, 0.08);
-    flex: 1;
-    display: flex; flex-direction: column; gap: 10px;
-  }
-  .tier ul li {
-    font-size: 13.5px;
-    line-height: 1.5;
-    color: rgba(232, 244, 248, 0.78);
-    display: flex; gap: 10px; align-items: flex-start;
-  }
-  .tier ul li::before {
-    content: '';
-    width: 14px; height: 14px;
-    flex-shrink: 0;
-    margin-top: 3px;
-    background: rgba(200, 169, 110, 0.18);
-    border: 1px solid rgba(200, 169, 110, 0.5);
-    border-radius: 50%;
-    position: relative;
-  }
-  .tier ul li.has::after { /* checkmark dot */ }
-  .tier ul li.has::before {
-    background: var(--sand);
-    border-color: var(--sand);
-  }
-  .tier .pick-btn {
-    margin-top: 22px;
-    width: 100%;
-    padding: 13px 16px;
-    border-radius: 100px;
-    border: 1px solid rgba(232, 244, 248, 0.18);
-    background: transparent;
-    color: var(--foam);
-    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-    font-weight: 400;
-    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-  }
-  .tier .pick-btn:hover { background: rgba(232, 244, 248, 0.06); border-color: rgba(232, 244, 248, 0.4); }
-  .tier.selected .pick-btn {
-    background: var(--sand);
-    color: var(--night);
-    border-color: var(--sand);
-  }
-  .tier.selected .pick-btn::after {
-    content: ' ✓';
-    margin-left: 4px;
-  }
-
-  /* =====================================================================
-     SIGNUP FORM
-  ===================================================================== */
-  .signup-shell {
-    margin-top: 56px;
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 48px;
-    align-items: start;
-  }
-  @media (max-width: 900px) { .signup-shell { grid-template-columns: 1fr; gap: 32px; } }
-
-  .signup-form {
-    background: rgba(255, 255, 255, 0.6);
-    border: 1px solid var(--section-rule);
-    border-radius: 18px;
-    padding: 36px 34px;
-    backdrop-filter: blur(6px);
-  }
-  @media (max-width: 560px) { .signup-form { padding: 26px 22px; } }
-  .signup-form h3 {
-    font-family: var(--font-display);
-    font-size: 26px; font-weight: 400;
-    margin-bottom: 4px;
-    color: var(--section-ink);
-  }
-  .signup-form h3 em { font-family: var(--font-italic); font-style: italic; color: var(--ocean); }
-  .signup-form .form-sub {
-    font-size: 13.5px;
-    color: var(--section-ink-soft);
-    margin-bottom: 24px;
-  }
-
-  .field {
-    display: flex; flex-direction: column;
-    gap: 6px;
-    margin-bottom: 16px;
-  }
-  .field label {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--ocean-deep);
-  }
-  .field label .req { color: var(--dusk); margin-left: 4px; }
-  .field input[type="text"],
-  .field input[type="email"],
-  .field input[type="url"],
-  .field textarea,
-  .field select {
-    width: 100%;
-    padding: 12px 14px;
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(26, 36, 51, 0.16);
-    border-radius: 10px;
-    font-family: var(--font-text);
-    font-size: 14px;
-    color: var(--section-ink);
-    line-height: 1.4;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-  }
-  .field textarea { min-height: 90px; resize: vertical; }
-  .field input:focus, .field textarea:focus, .field select:focus {
-    outline: none;
-    border-color: var(--ocean);
-    background: #fff;
-    box-shadow: 0 0 0 3px rgba(0, 120, 180, 0.12);
-  }
-  .field input::placeholder, .field textarea::placeholder { color: rgba(26, 36, 51, 0.38); }
-
-  .field-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-  }
-  @media (max-width: 540px) { .field-row { grid-template-columns: 1fr; } }
-
-  /* Logo upload */
-  .logo-drop {
-    border: 1.5px dashed rgba(0, 120, 180, 0.35);
-    border-radius: 12px;
-    padding: 22px;
-    background: rgba(0, 120, 180, 0.04);
-    display: flex; align-items: center; gap: 18px;
-    cursor: pointer;
-    transition: background 0.25s ease, border-color 0.25s ease;
-    position: relative;
-  }
-  .logo-drop:hover, .logo-drop.dragover {
-    background: rgba(0, 120, 180, 0.09);
-    border-color: var(--ocean);
-  }
-  .logo-drop input[type="file"] {
-    position: absolute; inset: 0;
-    opacity: 0; cursor: pointer;
-  }
-  .logo-preview {
-    width: 64px; height: 64px;
-    border-radius: 10px;
-    background: #fff;
-    border: 1px solid var(--section-rule);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--ocean);
-    overflow: hidden;
-    flex-shrink: 0;
-  }
-  .logo-preview svg { width: 26px; height: 26px; }
-  .logo-preview img { width: 100%; height: 100%; object-fit: contain; }
-  .logo-drop .copy {
-    flex: 1;
-    min-width: 0;
-  }
-  .logo-drop .copy .t {
-    font-family: var(--font-display);
-    font-size: 16px; color: var(--section-ink);
-    margin-bottom: 2px;
-  }
-  .logo-drop .copy .s {
-    font-size: 12px; color: var(--section-ink-soft);
-    word-break: break-all;
-  }
-
-  /* Selected tier readout */
-  .selected-tier-read {
-    background: rgba(0, 120, 180, 0.06);
-    border: 1px solid rgba(0, 120, 180, 0.15);
-    border-radius: 12px;
-    padding: 14px 16px;
-    display: flex; justify-content: space-between; align-items: center; gap: 14px;
-    margin-bottom: 22px;
-    flex-wrap: wrap;
-  }
-  .selected-tier-read .l {
-    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--ocean-deep);
-  }
-  .selected-tier-read .v {
-    font-family: var(--font-italic); font-style: italic;
-    font-size: 18px;
-    color: var(--ocean-deep);
-  }
-  .selected-tier-read .v .price { color: var(--section-ink); margin-left: 8px; font-style: normal; font-family: var(--font-display); }
-  .selected-tier-read button {
-    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--ocean);
-    background: none; border: none;
-    text-decoration: underline; text-underline-offset: 3px;
-  }
-
-  .checkbox-row {
-    display: flex; align-items: flex-start; gap: 10px;
-    margin: 8px 0 22px;
-    font-size: 13px;
-    color: var(--section-ink-soft);
-    line-height: 1.5;
-  }
-  .checkbox-row input { margin-top: 3px; accent-color: var(--ocean); }
-
-  .submit-row {
-    display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
-    margin-top: 8px;
-  }
-  .btn-stripe {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 16px 32px;
-    background: var(--ocean-deep);
-    color: var(--foam);
-    border-radius: 100px;
-    font-size: 13px; font-weight: 500;
-    letter-spacing: 0.16em; text-transform: uppercase;
-    transition: transform 0.2s var(--ease-out-expo), background 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 24px rgba(0, 61, 98, 0.25);
-  }
-  .btn-stripe:hover {
-    transform: translateY(-2px);
-    background: #02528b;
-    box-shadow: 0 10px 36px rgba(0, 61, 98, 0.35);
-  }
-  .btn-stripe svg { width: 16px; height: 16px; }
-  .stripe-note {
-    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--section-ink-soft);
-    display: inline-flex; align-items: center; gap: 8px;
-  }
-  .stripe-note .lock {
-    width: 12px; height: 12px;
-  }
-
-  /* What happens next sidebar */
-  .next-card {
-    position: sticky;
-    top: 100px;
-    background: var(--night-2);
-    color: var(--foam);
-    border-radius: 18px;
-    padding: 28px 26px;
-    border: 1px solid rgba(232, 244, 248, 0.06);
-  }
-  .next-card h4 {
-    font-family: var(--font-display);
-    font-size: 20px; font-weight: 400;
-    margin-bottom: 18px;
-    color: var(--foam);
-  }
-  .next-card h4 em { font-family: var(--font-italic); font-style: italic; color: var(--sand); }
-  .next-list {
-    list-style: none;
-    counter-reset: step;
-  }
-  .next-list li {
-    counter-increment: step;
-    padding: 14px 0 14px 38px;
-    border-top: 1px solid rgba(232, 244, 248, 0.07);
-    position: relative;
-    font-size: 13.5px;
-    color: var(--foam-dim);
-    line-height: 1.55;
-  }
-  .next-list li:first-child { border-top: none; padding-top: 4px; }
-  .next-list li:last-child { padding-bottom: 4px; }
-  .next-list li::before {
-    content: counter(step, decimal-leading-zero);
-    position: absolute; left: 0; top: 14px;
-    font-family: var(--font-display);
-    font-size: 13px;
-    color: var(--sand);
-    letter-spacing: 0.05em;
-  }
-  .next-list li:first-child::before { top: 4px; }
-  .next-list li strong {
-    color: var(--foam);
-    font-weight: 500;
-    display: block;
-    margin-bottom: 2px;
-    font-family: var(--font-display);
-  }
-
-  /* =====================================================================
-     CURRENT SPONSORS / SOCIAL PROOF
-  ===================================================================== */
-  .sponsor-wall {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1px;
-    background: rgba(232, 244, 248, 0.08);
-    border: 1px solid rgba(232, 244, 248, 0.08);
-    border-radius: 14px;
-    overflow: hidden;
-    margin-top: 48px;
-  }
-  @media (max-width: 900px) { .sponsor-wall { grid-template-columns: repeat(3, 1fr); } }
-  @media (max-width: 520px) { .sponsor-wall { grid-template-columns: repeat(2, 1fr); } }
-  .sponsor-cell {
-    background: var(--night-2);
-    aspect-ratio: 16/9;
-    display: flex; align-items: center; justify-content: center;
-    padding: 18px;
-    color: rgba(232, 244, 248, 0.4);
-    font-family: var(--font-italic); font-style: italic;
-    font-size: 14px;
-    text-align: center;
-    transition: background 0.3s ease, color 0.3s ease;
-  }
-  .sponsor-cell:hover { background: #0a1828; color: var(--sand-soft); }
-  .sponsor-cell.empty {
-    color: rgba(232, 244, 248, 0.2);
-    font-family: var(--font-text); font-style: normal;
-    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
-  }
-
-  /* =====================================================================
-     FAQ tweak — sponsors are on a light section
-  ===================================================================== */
-  .section-light .faq-list { border-top-color: rgba(26, 36, 51, 0.14); }
-  .section-light .faq-item { border-bottom-color: rgba(26, 36, 51, 0.14); }
-  .section-light .faq-q { color: var(--section-ink); }
-  .section-light .faq-q .sign { border-color: rgba(26, 36, 51, 0.25); }
-  .section-light .faq-q .sign::before, .section-light .faq-q .sign::after { background: var(--section-ink); }
-  .section-light .faq-item.open .faq-q .sign { background: var(--ocean); border-color: var(--ocean); }
-  .section-light .faq-item.open .faq-q .sign::before, .section-light .faq-item.open .faq-q .sign::after { background: var(--foam); }
-  .section-light .faq-a { color: var(--section-ink-soft); }
-
-  /* Toast on success */
-  .toast {
-    position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(20px);
-    background: var(--night-2);
-    color: var(--foam);
-    border: 1px solid rgba(200, 169, 110, 0.4);
-    padding: 14px 22px;
-    border-radius: 100px;
-    font-size: 13px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-    opacity: 0; pointer-events: none;
-    transition: opacity 0.4s ease, transform 0.4s var(--ease-out-expo);
-    z-index: 200;
-  }
-  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
-  .toast em { color: var(--sand); font-family: var(--font-italic); font-style: italic; }
-</style>
+  <link rel="stylesheet" crossorigin href="/assets/sponsors-CeIbIHaY.css">
+  <link rel="stylesheet" crossorigin href="/assets/about-C8EeQN2R.css">
 </head>
 <body>
 
 <!-- NAV -->
 <nav class="topnav" id="topnav">
   <a href="About.html" class="brand">
-    <span class="dot" style="width:8px; height:8px; background:var(--sand); border-radius:50%; box-shadow:0 0 18px rgba(200,169,110,0.8);"></span>
-    <span style="font-family: var(--font-display); font-size: 22px; letter-spacing: 0.18em; text-transform: uppercase;">Oasea</span>
+    <img class="dot" src="img/logo/oasea-logo_drop-icon-white.svg" alt="">
+    <span style="font-family: var(--font-display); font-size: 22px; letter-spacing: 0.18em">Oasea</span>
   </a>
   <div class="nav-links">
     <a href="About.html#what">About</a>
     <a href="About.html#loop">How it Plays</a>
     <a href="sponsors.html" style="color: var(--foam);">Sponsors</a>
-    <a href="https://play.oasea.earth" class="nav-play">Play Now →</a>
+    <a href="/" class="nav-play">Play Now →</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero hero--sponsors" id="top">
-  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-bg" aria-hidden="true">
+    <img src="img/about/island-offset-bg.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.45;">
+  </div>
   <div class="hero-scrim" aria-hidden="true"></div>
   <canvas id="rain-canvas" aria-hidden="true"></canvas>
 
-  <div class="hero-inner">
+  <div class="hero-inner" style="background:rgba(13,27,42,0.65);border-radius:16px;padding:clamp(32px,5vw,56px) clamp(28px,6vw,64px);border:1px solid rgba(232,244,248,0.07);">
+
     <span class="eyebrow">For studios, brands &amp; patrons</span>
     <h1 style="font-size: clamp(3.6rem, 9vw, 6.8rem);">Sponsor an island.</h1>
-    <p class="tagline">Your name in the rain.</p>
+    <p class="tagline">Your name alongside change.</p>
     <p class="pitch">Oasea is played by people who care about the things that grow slowly. Attach your name to it. Get credited in-game forever, celebrated on our channels, and known as a quiet ally of cozy, optimistic play.</p>
     <div class="cta-row">
       <a href="#tiers" class="btn-primary">See sponsor tiers <span class="arrow">→</span></a>
       <a href="#benefits" class="btn-ghost">What you get</a>
     </div>
 
+    <!-- TODO: restore trust-strip once real data is available from Supabase
     <div class="trust-strip">
       <div class="trust-stat">
-        <div class="num"><em>140k+</em></div>
+        <div class="num"><em>0k+</em></div>
         <div class="lab">Players<br>since launch</div>
       </div>
       <div class="trust-stat">
@@ -605,6 +66,7 @@
         <div class="lab">Ads or<br>trackers</div>
       </div>
     </div>
+    -->
   </div>
 </section>
 
@@ -612,8 +74,8 @@
 <section class="section-light" id="benefits">
   <div class="wrap">
     <div class="section-label"><span class="num">01</span> Why sponsor Oasea</div>
-    <h2 class="section-title">A small bet on something <em>quietly loved</em>.</h2>
-    <p class="lede">Most marketing buys you attention. Sponsoring Oasea buys you association — with patience, beauty, and a player base that'll remember your name long after a banner ad has faded.</p>
+    <h2 class="section-title">A small bet on a world of <em>growth</em>.</h2>
+    <p class="lede">Most marketing buys you attention. Sponsoring Oasea buys you association — with patience, beauty, and a player base that'll remember you cared long after a banner ad has faded.</p>
 
     <div class="benefits-grid">
       <div class="benefit">
@@ -638,7 +100,7 @@
         <span class="benefit-num">04</span>
         <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
         <h3>An island <em>named</em> for you</h3>
-        <p>At Reef tier and above, one of the procedurally seeded islands carries your name as its place-of-origin. Players who land there will see it.</p>
+        <p>At Reef tier and above, a hand-tuned islands carries your name. Players will see it in the level select screen and when they land there.</p>
       </div>
       <div class="benefit">
         <span class="benefit-num">05</span>
@@ -754,7 +216,7 @@
           <li class="has">A biome co-designed with you</li>
           <li class="has">Top-of-credits "Founding Sponsor"</li>
           <li class="has">Quarterly creative call with the team</li>
-          <li class="has">Custom in-game weather event</li>
+          <li class="has">Custom in-game update of your choosing</li>
           <li class="has">Hand-drawn thank-you in launch update</li>
         </ul>
         <button class="pick-btn">Choose Reef</button>
@@ -762,7 +224,7 @@
     </div>
 
     <p style="margin-top: 36px; text-align: center; color: var(--foam-dim); font-size: 14px;">
-      Annual sponsorship saves <em style="font-family: var(--font-italic); color: var(--sand);">two months</em>. Custom &amp; nonprofit tiers available — <a href="/cdn-cgi/l/email-protection#dba8abb4b5a8b4a99bb4baa8bebaf5bebaa9afb3" style="color: var(--sand-soft); text-decoration: underline; text-underline-offset: 3px;">write us</a>.
+      Annual sponsorship saves <em style="font-family: var(--font-italic); color: var(--sand);">two months</em>. Custom &amp; nonprofit tiers available — <a href="mailto:dlightningexperience@gmail.com" style="color: var(--sand-soft); text-decoration: underline; text-underline-offset: 3px;">write us</a>.
     </p>
   </div>
 </section>
@@ -915,7 +377,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q"><span>Do you offer discounts for nonprofits or schools?</span><span class="sign"></span></button>
-        <div class="faq-a">Yes — write us at <a href="/cdn-cgi/l/email-protection#80f3f0efeef3eff2c0efe1f3e5e1aee5e1f2f4e8" style="color: var(--ocean); text-decoration: underline; text-underline-offset: 3px;"><span class="__cf_email__" data-cfemail="1e6d6e71706d716c5e717f6d7b7f307b7f6c6a76">[email&#160;protected]</span></a> and we'll set up a custom rate. We also have a "play-for-classrooms" program at no charge.</div>
+        <div class="faq-a">Yes — write us at <a href="mailto:dlightningexperience@gmail.com" style="color: var(--ocean); text-decoration: underline; text-underline-offset: 3px;">dlightningexperience@gmail.com</a> and we'll set up a custom rate. We also have a "play-for-classrooms" program at no charge.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q"><span>Where does the money go?</span><span class="sign"></span></button>
@@ -931,7 +393,7 @@
   <p>Pick a tier, add your name, and we'll do the rest.</p>
   <div class="cta-row" style="justify-content:center;">
     <a href="#tiers" class="btn-primary">Become a sponsor <span class="arrow">→</span></a>
-    <a href="/cdn-cgi/l/email-protection#81f2f1eeeff2eef3c1eee0f2e4e0afe4e0f3f5e9" class="btn-ghost">
+    <a href="mailto:dlightningexperience@gmail.com" class="btn-ghost">
       <span class="iconify" data-icon="mdi:email-outline" style="font-size:16px;"></span>
       Talk to us first
     </a>
@@ -948,7 +410,7 @@
     <div>
       <h4>The Game</h4>
       <ul>
-        <li><a href="https://play.oasea.earth">Play now</a></li>
+        <li><a href="/">Play now</a></li>
         <li><a href="About.html#what">About</a></li>
         <li><a href="About.html#loop">How it plays</a></li>
         <li><a href="About.html#gallery">Screenshots</a></li>
@@ -958,7 +420,7 @@
       <h4>Support us</h4>
       <ul>
         <li><a href="sponsors.html">Sponsorship</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#9cefecf3f2eff3eedcf3fdeff9fdb2f9fdeee8f4">Email the team</a></li>
+        <li><a href="mailto:dlightningexperience@gmail.com">Email the team</a></li>
         <li><a href="#wall">Sponsor wall</a></li>
       </ul>
     </div>
@@ -966,13 +428,13 @@
       <h4>Resources</h4>
       <ul>
         <li><a href="press-kit.html">Press kit</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#0b7b796e78784b6f67626c637f6562656c2564796c">Contact</a></li>
+        <li><a href="mailto:dlightningexperience@gmail.com">Contact</a></li>
         <li><a href="#">Privacy</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 DLightning Studios</span>
+    <span>© 2026 <a href="https://dlightning.org/">DLightning Studios</a></span>
     <span>Launched Earth Day, 2026</span>
   </div>
 </footer>
@@ -982,7 +444,7 @@
   <span id="toast-msg">Redirecting to <em>Stripe</em>…</span>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   /* ==========================================
      NAV scroll state
      ========================================== */
