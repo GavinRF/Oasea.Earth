@@ -31,9 +31,10 @@ function isLargeAsset(url) {
 // Install event - cache app shell
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(STATIC_CACHE)
-      .then((cache) => cache.addAll(STATIC_ASSETS))
-      .then(() => self.skipWaiting())
+    caches.open(STATIC_CACHE).then(async (cache) => {
+      await Promise.allSettled(STATIC_ASSETS.map(url => cache.add(url).catch(() => {})));
+      await self.skipWaiting();
+    })
   );
 });
 
