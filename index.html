@@ -44,15 +44,15 @@
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
-    <script type="module" crossorigin src="/assets/main-Wu_q__Ow.js"></script>
+    <script type="module" crossorigin src="/assets/main-D_54MrOo.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/supabase-qp4a7gwM.js">
     <link rel="modulepreload" crossorigin href="/assets/three-D8n9J4sM.js">
     <link rel="modulepreload" crossorigin href="/assets/physics-CKC5f6tm.js">
     <link rel="modulepreload" crossorigin href="/assets/toast-DFQg6cek.js">
     <link rel="modulepreload" crossorigin href="/assets/audioManager-CCjicHO6.js">
     <link rel="modulepreload" crossorigin href="/assets/physicsQueue-XOQprDaT.js">
-    <link rel="modulepreload" crossorigin href="/assets/levelManager-DYw0VoqQ.js">
-    <link rel="modulepreload" crossorigin href="/assets/inputHandler-TzgxNNaO.js">
+    <link rel="modulepreload" crossorigin href="/assets/levelManager-4bPr8KNe.js">
+    <link rel="modulepreload" crossorigin href="/assets/inputHandler-BpVxqCI4.js">
     <link rel="modulepreload" crossorigin href="/assets/messageProtocol-BMEmlWkN.js">
     <link rel="modulepreload" crossorigin href="/assets/networkClient-Bpayhc9L.js">
     <link rel="modulepreload" crossorigin href="/assets/lava-DnvQknEQ.js">
@@ -826,10 +826,6 @@ mountain_steam
           try {
             const reg = await navigator.serviceWorker.register('/sw.js');
             console.log('SW registered:', reg.scope);
-            // Sync push subscription state after SW is ready (lazy import keeps it out of critical path)
-            import('/assets/pushNotifications-BAvCvRpF.js')
-              .then(({ syncPushSubscriptionState }) => syncPushSubscriptionState())
-              .catch(() => {});
           } catch (e) {
             console.log('SW registration failed:', e);
           }
