@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'oasea-v1.0.15';
+const CACHE_VERSION = 'oasea-v1.0.21';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const ASSET_CACHE = `${CACHE_VERSION}-assets`;   // models, audio, textures — never evicted
 const DYNAMIC_CACHE = `${CACHE_VERSION}-dynamic`; // JS chunks, CSS, HTML — capped
@@ -59,6 +59,7 @@ self.addEventListener('fetch', (event) => {
 
   if (request.method !== 'GET') return;
   if (url.protocol === 'chrome-extension:') return;
+  if (url.pathname === '/admin.html' || url.pathname.startsWith('/admin')) return;
 
   // Pass range requests through — audio/video streaming uses these and
   // partial responses (206) can't be safely cached or reconstructed.

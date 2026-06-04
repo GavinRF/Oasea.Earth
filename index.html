@@ -44,21 +44,27 @@
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
-    <script type="module" crossorigin src="/assets/main-TwCs5N7R.js"></script>
+   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    <script type="module" crossorigin src="/assets/main-Bw_N2ABo.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
     <link rel="modulepreload" crossorigin href="/assets/supabase-qp4a7gwM.js">
-    <link rel="modulepreload" crossorigin href="/assets/three-D8n9J4sM.js">
+    <link rel="modulepreload" crossorigin href="/assets/three-vJUBkHxL.js">
     <link rel="modulepreload" crossorigin href="/assets/physics-CKC5f6tm.js">
     <link rel="modulepreload" crossorigin href="/assets/toast-DFQg6cek.js">
-    <link rel="modulepreload" crossorigin href="/assets/audioManager-Bhl1Lnir.js">
-    <link rel="modulepreload" crossorigin href="/assets/physicsQueue-XOQprDaT.js">
-    <link rel="modulepreload" crossorigin href="/assets/packState-DWT5onrP.js">
-    <link rel="modulepreload" crossorigin href="/assets/soundtrack-v1-FnRXlSH8.js">
-    <link rel="modulepreload" crossorigin href="/assets/levelManager-CXwJV8lL.js">
-    <link rel="modulepreload" crossorigin href="/assets/inputHandler-B1dU6rKY.js">
+    <link rel="modulepreload" crossorigin href="/assets/supabaseConfig-BCu5G7WU.js">
+    <link rel="modulepreload" crossorigin href="/assets/haptics-CVC700rQ.js">
+    <link rel="modulepreload" crossorigin href="/assets/audioManager-BjdXWEiE.js">
+    <link rel="modulepreload" crossorigin href="/assets/physicsQueue-CYlIB816.js">
+    <link rel="modulepreload" crossorigin href="/assets/emailRecovery-DC0OA2yc.js">
+    <link rel="modulepreload" crossorigin href="/assets/soundtrack-v1-DAn48QlH.js">
+    <link rel="modulepreload" crossorigin href="/assets/packState-BDM9-7SC.js">
+    <link rel="modulepreload" crossorigin href="/assets/levelManager-CXaHbJff.js">
+    <link rel="modulepreload" crossorigin href="/assets/sculptEffects-HepbQ-tR.js">
+    <link rel="modulepreload" crossorigin href="/assets/stormRain-DmdVIPUh.js">
     <link rel="modulepreload" crossorigin href="/assets/messageProtocol-BMEmlWkN.js">
     <link rel="modulepreload" crossorigin href="/assets/networkClient-Bpayhc9L.js">
-    <link rel="modulepreload" crossorigin href="/assets/lava-DRgdGDiQ.js">
-    <link rel="stylesheet" crossorigin href="/assets/main-CFQViXMK.css">
+    <link rel="modulepreload" crossorigin href="/assets/lava-DiCl-uR5.js">
+    <link rel="stylesheet" crossorigin href="/assets/main-ChBPP9Lp.css">
   </head>
 
   <body>
@@ -442,6 +448,11 @@
           </div>
         </div>
 
+        <button id="find-rings-btn" class="play-btn" style="display:none;margin-bottom:8px;" aria-label="Find the hidden rings around the island">
+          <span class="material-icons-outlined" aria-hidden="true">circle</span>
+          Find the Rings
+        </button>
+
         <button id="close-score" class="play-btn" aria-label="Close score modal">
           <span class="material-icons" aria-hidden="true">close</span>
           Close
@@ -574,27 +585,68 @@
         <div id="leaderboard-credits" class="leaderboard-tab-content" style="display: none;">
           <div class="leaderboard-list">
           <div class="credits-content credits-section">
-          <h2>Water is Life.</h2>
           <h4>Special Thanks to Our Sponsors</h4>
           <div class="sponsors">
-            <div class="sponsor-item">
-              <a href="https://www.watershed-alliance.org" target="_blank">
-              <img src="img/earthworks.png" alt="Earthworkers Ultd" width="40" height="40" decoding="async">
+
+            <!-- REEF: full width -->
+            <div class="sponsor-tier sponsor-tier--reef">
+              <div class="sponsor-tier-label">Reef — Founding Partners</div>
+              <a href="sponsors.html" target="_blank" class="sponsor-reef-item">
+                <img src="img/sponsors/great-barrier-reef.jpg" alt="The Great Barrier Reef" decoding="async">
+                <span>The Great Barrier Reef</span>
               </a>
-              <a href="https://www.watershed-alliance.org" target="_blank">Earthworkers Ultd.</a>
             </div>
-            <div class="sponsor-item">
-              <a href="https://www.watershed-alliance.org" target="_blank">
-              <img src="img/watershed-al.png" alt="Watershed Alliance" width="40" height="40" decoding="async">
-              </a>
-              <a href="https://www.watershed-alliance.org" target="_blank">Watershed Alliance</a>
+
+            <!-- LAGOON: half width each -->
+            <div class="sponsor-tier sponsor-tier--lagoon">
+              <div class="sponsor-tier-label">Lagoon — Partners</div>
+              <div class="sponsor-lagoon-row">
+                <a href="sponsors.html" target="_blank" class="sponsor-lagoon-item">
+                  <img src="img/sponsors/shark.jpg" alt="Shark" decoding="async">
+                  <span>Shark</span>
+                </a>
+                <a href="sponsors.html" target="_blank" class="sponsor-lagoon-item">
+                  <img src="img/sponsors/whale.jpg" alt="Whale" decoding="async">
+                  <span>Whale</span>
+                </a>
+              </div>
             </div>
-            <div class="sponsor-item">
-              <a href="https://oceanprotectors.com" target="_blank">
-              <img src="img/ocean-protectors.png" alt="Ocean Protectors" width="40" height="40" decoding="async">
-              </a>
-              <a href="https://oceanprotectors.com" target="_blank">Ocean Protectors</a>
+
+            <!-- COVE: logo + name -->
+            <div class="sponsor-tier sponsor-tier--cove">
+              <div class="sponsor-tier-label">Cove — Studios &amp; Brands</div>
+              <div class="sponsor-cove-row">
+                <div class="sponsor-item">
+                  <a href="sponsors.html" target="_blank">
+                    <img src="img/sponsors/earthworks.png" alt="Earthworkers Ultd" width="40" height="40" decoding="async">
+                  </a>
+                  <a href="sponsors.html" target="_blank">Earthworkers Ultd.</a>
+                </div>
+                <div class="sponsor-item">
+                  <a href="sponsors.html" target="_blank">
+                    <img src="img/sponsors/watershed-al.png" alt="Watershed Alliance" width="40" height="40" decoding="async">
+                  </a>
+                  <a href="sponsors.html" target="_blank">Watershed Alliance</a>
+                </div>
+                <div class="sponsor-item">
+                  <a href="sponsors.html" target="_blank">
+                    <img src="img/sponsors/ocean-protectors.png" alt="Ocean Protectors" width="40" height="40" decoding="async">
+                  </a>
+                  <a href="sponsors.html" target="_blank">Ocean Protectors</a>
+                </div>
+              </div>
             </div>
+
+            <!-- TIDE: names only -->
+            <div class="sponsor-tier sponsor-tier--tide">
+              <div class="sponsor-tier-label">Tide — Supporters</div>
+              <div class="sponsor-tide-names">
+                <span class="sponsor-tide-name">— anonymous —</span>
+                <span class="sponsor-tide-name">your name here</span>
+                <span class="sponsor-tide-name">your name here</span>
+              </div>
+            </div>
+
           </div>
 
           <h5>Music</h5>
@@ -617,6 +669,8 @@
             <li>Mayan Temple by <a href="https://poly.pizza/u/Steve%20Atkins" target="_blank">Steve Atkins</a></li>
             <li>Seagulls by <a href="https://www.youtube.com/channel/UCzP-KJIwS1Shjt7H2KpokEw" target="_blank">Vicente Betoret</a></li>
             <li>Whale Shark by <a href="https://sketchfab.com/kenchoo" target="_blank">Ken Choo</a></li>
+            <li>Hammerhead Shark by <a href="https://jjntx.csb.app/" target="_blank">Riley Kuhlman</a></li>
+            <li>Sail-ship by <a href="https://sketchfab.com/Jarro95" target="_blank">Jarro95</a></li>
             <li>Sail-fish by <a href="https://sketchfab.com/larycim" target="_blank">Lary</a></li>
             <li>Green Sea Turtle by <a href="https://linktr.ee/lucasBS8" target="_blank">Lucas B.</a></li>
             <li>Firefly Squid by <a href="https://misaooo.artstation.com/" target="_blank">Kristina Sergeeva</a></li>
@@ -633,6 +687,8 @@
             <li>Terrain Normal Maps by <a href="https://www.filterforge.com/" target="_blank">Filter Forge</a></li>
           </ul>
           <br><br>
+          <h2>Water is Life.</h2>
+          <br>
           <h3>A game by <a href="https://dlightning.org"><i>Dlightning⚡️</i></a></h3>
           </div>
         </div>

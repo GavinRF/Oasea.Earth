@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oasea Admin</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script type="module" crossorigin src="/assets/admin-kQdNW19A.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
+  <link rel="modulepreload" crossorigin href="/assets/supabase-qp4a7gwM.js">
+  <link rel="modulepreload" crossorigin href="/assets/supabaseConfig-BCu5G7WU.js">
+  <link rel="stylesheet" crossorigin href="/assets/admin-DbeWJGZq.css">
+</head>
+<body>
+
+  <div id="admin-gate">
+    <div class="gate-card">
+      <div class="gate-logo">
+        <span class="material-icons">water_drop</span>
+        <span>Oasea Admin</span>
+      </div>
+      <input type="password" id="admin-password-input" placeholder="Password" autocomplete="current-password">
+      <button id="admin-unlock-btn">
+        <span class="material-icons">lock_open</span>
+        Unlock
+      </button>
+      <p id="gate-error"></p>
+    </div>
+  </div>
+
+  <div id="admin-shell" style="display:none">
+    <nav id="admin-nav">
+      <div class="nav-brand">
+        <span class="material-icons">water_drop</span>
+        <span>Oasea Admin</span>
+      </div>
+      <ul>
+        <li><a href="#" class="nav-link active" data-section="dashboard">
+          <span class="material-icons">dashboard</span>Dashboard</a></li>
+        <li><a href="#" class="nav-link" data-section="players">
+          <span class="material-icons">people</span>Players</a></li>
+        <li><a href="#" class="nav-link" data-section="levels">
+          <span class="material-icons">map</span>Level Analytics</a></li>
+        <li><a href="#" class="nav-link" data-section="revenue">
+          <span class="material-icons">payments</span>Revenue</a></li>
+        <li><a href="#" class="nav-link" data-section="islands">
+          <span class="material-icons">terrain</span>User Islands</a></li>
+      </ul>
+    </nav>
+
+    <main id="admin-main">
+      <div id="section-dashboard" class="admin-section"></div>
+      <div id="section-players"   class="admin-section" style="display:none"></div>
+      <div id="section-levels"    class="admin-section" style="display:none"></div>
+      <div id="section-revenue"   class="admin-section" style="display:none"></div>
+      <div id="section-islands"   class="admin-section" style="display:none"></div>
+    </main>
+  </div>
+
+  <dialog id="island-config-dialog">
+    <div class="dialog-header">
+      <span id="dialog-island-name">Island Config</span>
+      <button id="dialog-close" class="icon-btn"><span class="material-icons">close</span></button>
+    </div>
+    <pre id="island-config-pre"></pre>
+  </dialog>
+
+</body>
+</html>
