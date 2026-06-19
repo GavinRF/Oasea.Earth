@@ -610,6 +610,29 @@
   });
 
   /* ==========================================
+     TRAILER — load YouTube iframe on click (facade)
+     ========================================== */
+  const videoWrap = document.querySelector('#trailer .video-wrap');
+  if (videoWrap) {
+    videoWrap.addEventListener('click', () => {
+      if (videoWrap.dataset.loaded) return;
+      videoWrap.dataset.loaded = '1';
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube-nocookie.com/embed/WSjma9XrRtA?autoplay=1&rel=0';
+      iframe.title = 'Oasea trailer';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.allowFullscreen = true;
+      iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;display:block;';
+      videoWrap.innerHTML = '';
+      videoWrap.appendChild(iframe);
+      videoWrap.style.cursor = 'default';
+      videoWrap.removeAttribute('role');
+      videoWrap.removeAttribute('tabindex');
+      videoWrap.setAttribute('aria-label', 'Oasea trailer');
+    });
+  }
+
+  /* ==========================================
      RAIN CANVAS
      ========================================== */
   const canvas = document.getElementById('rain-canvas');
